@@ -1,0 +1,1034 @@
+{
+  "queries": 1003,
+  "retriever_hit_overlap": {
+    "bm25_only": 109,
+    "dense_only": 218,
+    "both": 622,
+    "neither": 54,
+    "hybrid_rescued": 189
+  },
+  "fully_missed_examples": [
+    {
+      "query_id": "83864",
+      "question": "Người khiếu nại các hành vi của người tiến hành tố tụng có quyền và nghĩa vụ gì?",
+      "gold_ids": [
+        "46918"
+      ],
+      "gold_titles": [
+        "Bo-luat-to-tung-dan-su-2015-296861"
+      ],
+      "hybrid_ids": [
+        "5041",
+        "104374",
+        "160120",
+        "251260",
+        "56363"
+      ],
+      "hybrid_titles": [
+        "Thong-tu-lien-tich-02-2018-TTLT-VKSTC-TATC-BCA-BQP-BTC-BNN-PTNT-giai-quyet-khieu-nai-to-cao-394337",
+        "Luat-khieu-nai-2011-132446",
+        "Luat-to-tung-hanh-chinh-2015-298372",
+        "Quyet-dinh-546-QD-VKSTC-2018-quy-dinh-quy-trinh-giai-quyet-khieu-nai-to-cao-405014",
+        "Thong-tu-01-2020-TT-TANDTC-quy-dinh-giai-quyet-khieu-nai-to-cao-trong-Toa-an-nhan-dan-445522"
+      ]
+    },
+    {
+      "query_id": "122170",
+      "question": "Thời gian đánh giá hồ sơ dự thầu tối đa là bao nhiêu ngày?",
+      "gold_ids": [
+        "201681"
+      ],
+      "gold_titles": [
+        "Luat-dau-thau-2013-215838"
+      ],
+      "hybrid_ids": [
+        "228530",
+        "220179",
+        "177195",
+        "195377",
+        "16570"
+      ],
+      "hybrid_titles": [
+        "Thong-tu-10-2016-TT-BKHDT-quy-dinh-chi-tiet-viec-giam-sat-theo-doi-kiem-tra-hoat-dong-dau-thau-2016-",
+        "Thong-tu-23-2015-TT-BKHDT-quy-dinh-chi-tiet-lap-bao-cao-danh-gia-ho-so-du-thau-299217",
+        "Thong-tu-10-2022-TT-BKHDT-huong-dan-dang-thong-tin-tren-He-thong-mang-dau-thau-quoc-gia-521465",
+        "Nghi-dinh-63-2014-ND-CP-huong-dan-Luat-Dau-thau-ve-lua-chon-nha-thau-237481",
+        "Nghi-dinh-95-2020-ND-CP-thuc-hien-dau-thau-mua-sam-theo-Hiep-dinh-Doi-tac-xuyen-Thai-Binh-Duong-4511"
+      ]
+    },
+    {
+      "query_id": "74674",
+      "question": "Dự kiến tháng 06/2023 sẽ hoàn thành Nghị định hướng dẫn Luật sửa đổi Luật Tần số vô tuyến điện 2022 đúng không?",
+      "gold_ids": [
+        "131942"
+      ],
+      "gold_titles": [
+        "Chi-thi-01-CT-BTTTT-2023-dinh-huong-phat-trien-nganh-Thong-tin-truyen-thong-554939"
+      ],
+      "hybrid_ids": [
+        "157596",
+        "62454",
+        "18032",
+        "183922",
+        "260328"
+      ],
+      "hybrid_titles": [
+        "Luat-sua-doi-Luat-Tan-so-vo-tuyen-dien-2022-513345",
+        "Thong-tu-04-2023-TT-BTTTT-Danh-muc-san-pham-hang-hoa-co-kha-nang-gay-mat-an-toan-568412",
+        "Luat-tan-so-vo-tuyen-dien-nam-2009-98673",
+        "Nghi-quyet-63-2022-QH15-ky-hop-thu-3-Quoc-hoi-khoa-XV-519378",
+        "Quyet-dinh-500-QD-TTg-2023-Quy-hoach-phat-trien-dien-luc-quoc-gia-2021-2030-tam-nhin-2050-566461"
+      ]
+    },
+    {
+      "query_id": "51420",
+      "question": "Thời hiệu xử phạt vi phạm hành chính đối với doanh nghiệp tư nhân mua phần vốn góp trong công ty hợp danh là bao lâu?",
+      "gold_ids": [
+        "186584"
+      ],
+      "gold_titles": [
+        "Nghi-dinh-122-2021-ND-CP-xu-phat-vi-pham-hanh-chinh-linh-vuc-ke-hoach-285024"
+      ],
+      "hybrid_ids": [
+        "69484",
+        "87086",
+        "60562",
+        "65293",
+        "159179"
+      ],
+      "hybrid_titles": [
+        "Nghi-dinh-98-2020-ND-CP-xu-phat-vi-pham-hanh-chinh-hoat-dong-san-xuat-buon-ban-hang-gia-406627",
+        "Nghi-dinh-125-2020-ND-CP-xu-phat-vi-pham-hanh-chinh-ve-thue-hoa-don-455646",
+        "Nghi-dinh-41-2018-ND-CP-quy-dinh-xu-phat-vi-pham-hanh-chinh-trong-linh-vuc-ke-toan-363484",
+        "Nghi-dinh-15-2020-ND-CP-xu-phat-vi-pham-hanh-chinh-linh-vuc-buu-chinh-vien-thong-tan-so-vo-tuyen-die",
+        "Nghi-dinh-109-2013-ND-CP-xu-phat-vi-pham-hanh-chinh-linh-vuc-quan-ly-gia-phi-le-phi-hoa-don-208273"
+      ]
+    },
+    {
+      "query_id": "101290",
+      "question": "Yêu cầu kiểm soát hàng hóa xuất khẩu, nhập khẩu liên quan đến quyền tác giả, quyền liên quan sẽ gửi đến cơ quan nào?",
+      "gold_ids": [
+        "115962",
+        "253656"
+      ],
+      "gold_titles": [
+        "Nghi-dinh-17-2023-ND-CP-huong-dan-Luat-So-huu-tri-tue-ve-quyen-tac-gia-quyen-lien-quan-565147",
+        "Luat-Hai-quan-2014-238637"
+      ],
+      "hybrid_ids": [
+        "292631",
+        "87450",
+        "155884",
+        "247532",
+        "259205"
+      ],
+      "hybrid_titles": [
+        "Nghi-dinh-08-2015-ND-CP-thi-hanh-Luat-Hai-quan-ve-thu-tuc-kiem-tra-giam-sat-kiem-soat-hai-quan-26381",
+        "Nghi-dinh-105-2021-ND-CP-huong-dan-Luat-Phong-chong-ma-tuy-496664",
+        "Nghi-dinh-59-2018-ND-CP-sua-doi-08-2015-ND-CP-huong-dan-Luat-Hai-quan-thu-tuc-kiem-tra-hai-quan-3525",
+        "Thong-tu-38-2018-TT-BTC-quy-dinh-xac-dinh-xuat-xu-hang-hoa-xuat-khau-nhap-khau-383389",
+        "Nghi-dinh-69-2018-ND-CP-huong-dan-Luat-Quan-ly-ngoai-thuong-382305"
+      ]
+    },
+    {
+      "query_id": "73982",
+      "question": "Ngân hàng thương mại được cấp Giấy chứng nhận đăng ký hoạt động lưu ký chứng khoán nhưng không thực hiện đăng ký thành viên lưu ký bị xử phạt vi phạm hành chính như thế nào?",
+      "gold_ids": [
+        "93883"
+      ],
+      "gold_titles": [
+        "Nghi-dinh-156-2020-ND-CP-quy-dinh-xu-phat-vi-pham-hanh-chinh-trong-linh-vuc-chung-khoan-461194"
+      ],
+      "hybrid_ids": [
+        "12343",
+        "75796",
+        "69484",
+        "79491",
+        "293727"
+      ],
+      "hybrid_titles": [
+        "Thong-tu-119-2020-TT-BTC-hoat-dong-dang-ky-luu-ky-bu-tru-va-thanh-toan-giao-dich-chung-khoan-461566",
+        "Thong-tu-40-2011-TT-NHNN-cap-Giay-phep-va-to-chuc-hoat-dong-ngan-hang-133060",
+        "Nghi-dinh-98-2020-ND-CP-xu-phat-vi-pham-hanh-chinh-hoat-dong-san-xuat-buon-ban-hang-gia-406627",
+        "Thong-tu-05-2015-TT-BTC-hoat-dong-dang-ky-luu-ky-bu-tru-thanh-toan-giao-dich-chung-khoan-263548",
+        "Nghi-dinh-82-2020-ND-CP-xu-phat-hanh-chinh-linh-vuc-hon-nhan-thi-hanh-an-pha-san-doanh-nghiep-392611"
+      ]
+    },
+    {
+      "query_id": "79688",
+      "question": "Hồ sơ xét tặng “Bằng khen của Thủ tướng Chính phủ” gồm những gì?",
+      "gold_ids": [
+        "261914"
+      ],
+      "gold_titles": [
+        "Nghi-dinh-91-2017-ND-CP-huong-dan-Luat-thi-dua-khen-thuong-315685"
+      ],
+      "hybrid_ids": [
+        "28935",
+        "231961",
+        "274422",
+        "85834",
+        "14165"
+      ],
+      "hybrid_titles": [
+        "Thong-tu-12-2019-TT-BCA-cong-tac-thi-dua-khen-thuong-trong-Cong-an-nhan-dan-428355",
+        "Thong-tu-01-2019-TT-VKSTC-quy-dinh-ve-cong-tac-thi-dua-khen-thuong-trong-nganh-Kiem-sat-nhan-dan-414",
+        "Thong-tu-151-2018-TT-BQP-huong-dan-thi-dua-khen-thuong-trong-Quan-doi-nhan-dan-Viet-Nam-399280",
+        "Luat-Thi-dua-Khen-thuong-2022-418232",
+        "Thong-tu-17-2019-TT-NHNN-huong-dan-cong-tac-thi-dua-khen-thuong-nganh-Ngan-hang-428430"
+      ]
+    },
+    {
+      "query_id": "90028",
+      "question": "Xem xét ban hành Nghị quyết mở rộng diện áp dụng miễn thị thực đơn phương theo yêu cầu của Chính Phủ đúng không?",
+      "gold_ids": [
+        "169568",
+        "192596",
+        "242143",
+        "58494"
+      ],
+      "gold_titles": [
+        "Chi-thi-10-CT-TTg-2021-cong-tac-bao-ve-an-ninh-quoc-gia-trat-tu-an-toan-xa-hoi-trong-linh-vuc-du-lic",
+        "Nghi-quyet-82-NQ-CP-2023-giai-phap-day-nhanh-phuc-hoi-tang-toc-phat-trien-du-lich-hieu-qua-ben-vung-",
+        "",
+        "Nghi-quyet-46-NQ-CP-2023-phien-hop-chuyen-de-xay-dung-phap-luat-thang-3-561503"
+      ],
+      "hybrid_ids": [
+        "2052",
+        "20261",
+        "40688",
+        "105608",
+        "110053"
+      ],
+      "hybrid_titles": [
+        "",
+        "Nghi-dinh-15-2018-ND-CP-huong-dan-Luat-an-toan-thuc-pham-341254",
+        "Nghi-dinh-82-2015-ND-CP-mien-thi-thuc-nguoi-Viet-Nam-dinh-cu-o-nuoc-ngoai-nguoi-nuoc-ngoai-291577",
+        "Nghi-dinh-67-2016-ND-CP-dieu-kien-san-xuat-kinh-doanh-thuc-pham-quan-ly-chuyen-nganh-Bo-Y-te-316650",
+        "Nghi-dinh-14-2018-ND-CP-quy-dinh-chi-tiet-ve-hoat-dong-thuong-mai-bien-gioi-373683"
+      ]
+    },
+    {
+      "query_id": "161094",
+      "question": "Trình tự, thủ tục và hồ sơ đăng ký miễn trừ các chất ô nhiễm hữu cơ khó phân hủy (POP)?",
+      "gold_ids": [
+        "303096"
+      ],
+      "gold_titles": [
+        "Nghi-dinh-08-2022-ND-CP-huong-dan-Luat-Bao-ve-moi-truong-479457"
+      ],
+      "hybrid_ids": [
+        "162888",
+        "18428",
+        "20261",
+        "174102",
+        "42498"
+      ],
+      "hybrid_titles": [
+        "Quyet-dinh-3026-QD-BTNMT-2022-chuc-nang-nhiem-vu-quyen-han-Cuc-Kiem-soat-o-nhiem-moi-truong-538863",
+        "Nghi-dinh-45-2022-ND-CP-xu-phat-vi-pham-hanh-chinh-linh-vuc-bao-ve-moi-truong-484772",
+        "Nghi-dinh-15-2018-ND-CP-huong-dan-Luat-an-toan-thuc-pham-341254",
+        "Nghi-dinh-113-2017-ND-CP-huong-dan-Luat-hoa-chat-346246",
+        "Quyet-dinh-37-2018-QD-TTg-thu-tuc-xet-cong-nhan-dat-tieu-chuan-va-bo-nhiem-giao-su-pho-giao-su-39421"
+      ]
+    },
+    {
+      "query_id": "43982",
+      "question": "Áp dụng biện pháp đặt tiền để bảo đảm thay thế cho biện pháp tạm giam trong trường hợp nào?",
+      "gold_ids": [
+        "299044"
+      ],
+      "gold_titles": [
+        "Thong-tu-lien-tich-04-2018-TTLT-VKSNDTC-BCA-BQP-thuc-hien-quy-dinh-cua-Bo-luat-to-tung-hinh-su-40216"
+      ],
+      "hybrid_ids": [
+        "231956",
+        "120244",
+        "223633",
+        "46918",
+        "217349"
+      ],
+      "hybrid_titles": [
+        "Thong-tu-lien-tich-06-2018-TTLT-BCA-BQP-BTC-VKSNDTC-TANDTC-thu-tuc-thu-nop-ngan-sach-402279",
+        "Nghi-dinh-21-2021-ND-CP-huong-dan-Bo-luat-Dan-su-bao-dam-thuc-hien-nghia-vu-468069",
+        "Nghi-quyet-02-2020-NQ-HDTP-ap-dung-bien-phap-khan-cap-tam-thoi-cua-Bo-luat-To-tung-dan-su-457919",
+        "Bo-luat-to-tung-dan-su-2015-296861",
+        "Luat-thi-hanh-tam-giu-tam-giam-2015-298373"
+      ]
+    },
+    {
+      "query_id": "18630",
+      "question": "Có thể dùng tài khoản Cổng Dịch vụ công quốc gia để đăng nhập vào những trang điện tử công nào khác?",
+      "gold_ids": [
+        "180514"
+      ],
+      "gold_titles": [
+        "Quyet-dinh-31-2021-QD-TTg-Quy-che-quan-ly-van-hanh-Cong-Dich-vu-cong-quoc-gia-491068"
+      ],
+      "hybrid_ids": [
+        "157891",
+        "64568",
+        "65054",
+        "264814",
+        "200618"
+      ],
+      "hybrid_titles": [
+        "Quyet-dinh-1582-QD-BHXH-2021-Quy-che-hoat-dong-Cong-Thong-tin-dien-tu-Bao-hiem-xa-hoi-495401",
+        "Luat-Nhap-canh-xuat-canh-qua-canh-cu-tru-cua-nguoi-nuoc-ngoai-tai-Viet-Nam-sua-doi-2019-422706",
+        "Nghi-dinh-77-2020-ND-CP-quan-ly-khai-thac-thong-tin-Co-so-du-lieu-quoc-gia-ve-xuat-nhap-canh-446614",
+        "Thong-tu-32-2017-TT-BTTTT-cung-cap-bao-dam-kha-nang-truy-cap-thuan-tien-trang-thong-tin-dien-tu-3410",
+        "Nghi-dinh-85-2019-ND-CP-thuc-hien-thu-tuc-hanh-chinh-theo-co-che-mot-cua-quoc-gia-ASEAN-428701"
+      ]
+    },
+    {
+      "query_id": "103802",
+      "question": "Đánh giá hiệu quả hoạt động của doanh nghiệp nhà nước nhằm mục đích gì?",
+      "gold_ids": [
+        "186811"
+      ],
+      "gold_titles": [
+        "Quyet-dinh-224-2006-QD-TTg-quy-che-giam-sat-danh-gia-hieu-qua-hoat-dong-doanh-nghiep-nha-nuoc-14627"
+      ],
+      "hybrid_ids": [
+        "6906",
+        "42208",
+        "93888",
+        "231265",
+        "95942"
+      ],
+      "hybrid_titles": [
+        "Nghi-quyet-68-NQ-CP-2022-tiep-tuc-doi-moi-nang-cao-hieu-qua-hoat-dong-doanh-nghiep-nha-nuoc-513072",
+        "Nghi-dinh-87-2015-ND-CP-giam-sat-dau-tu-von-nha-nuoc-vao-doanh-nghiep-292321",
+        "Nghi-dinh-159-2020-ND-CP-quan-ly-nguoi-giu-chuc-danh-chuc-vu-tai-doanh-nghiep-100-von-Nha-nuoc-46172",
+        "",
+        "Luat-Quan-ly-su-dung-von-Nha-nuoc-dau-tu-vao-san-xuat-kinh-doanh-tai-doanh-nghiep-2014-259731"
+      ]
+    },
+    {
+      "query_id": "32608",
+      "question": "Cơ quan nào có thẩm quyền cấp giấy chứng nhận đủ điều kiện sản xuất và kinh doanh hóa chất sản xuất kinh doanh có điều kiện trong lĩnh vực công nghiệp?",
+      "gold_ids": [
+        "112361"
+      ],
+      "gold_titles": [
+        "Nghi-dinh-82-2022-ND-CP-sua-doi-Nghi-dinh-113-2017-ND-CP-huong-dan-Luat-Hoa-chat-532839"
+      ],
+      "hybrid_ids": [
+        "174102",
+        "183120",
+        "93527",
+        "110588",
+        "219533"
+      ],
+      "hybrid_titles": [
+        "Nghi-dinh-113-2017-ND-CP-huong-dan-Luat-hoa-chat-346246",
+        "Thong-tu-32-2017-TT-BCT-huong-dan-Luat-Hoa-chat-va-Nghi-dinh-huong-dan-luat-hoa-chat-363171",
+        "Thong-tu-38-2018-TT-BNNPTNT-tham-dinh-co-so-san-xuat-thuc-pham-nong-lam-an-toan-thuc-pham-406512",
+        "Nghi-dinh-17-2020-ND-CP-sua-doi-Nghi-dinh-lien-quan-dieu-kien-dau-tu-kinh-doanh-Bo-Cong-thuong-43438",
+        "Luat-an-toan-thuc-pham-2010-108074"
+      ]
+    },
+    {
+      "query_id": "133602",
+      "question": "Mẫu báo cáo công tác bảo vệ môi trường trong hoạt động hàng không dân dụng mới nhất được quy định như thế nào?",
+      "gold_ids": [
+        "233430"
+      ],
+      "gold_titles": [
+        "Thong-tu-52-2022-TT-BGTVT-bao-ve-moi-truong-hang-khong-dan-dung-551316"
+      ],
+      "hybrid_ids": [
+        "230594",
+        "248883",
+        "191559",
+        "61567",
+        "15628"
+      ],
+      "hybrid_titles": [
+        "Thong-tu-29-2021-TT-BGTVT-huong-dan-quan-ly-khai-thac-cang-hang-khong-san-bay-496788",
+        "Thong-tu-13-2019-TT-BGTVT-huong-dan-Chuong-trinh-an-ninh-hang-khong-410654",
+        "Thong-tu-24-2021-TT-BGTVT-quan-ly-bao-tri-cong-trinh-hang-khong-495896",
+        "Luat-hang-khong-dan-dung-Viet-Nam-2006-66-2006-QH11-12983",
+        "Thong-tu-19-2017-TT-BGTVT-quy-dinh-ve-quan-ly-va-bao-dam-hoat-dong-bay-330393"
+      ]
+    },
+    {
+      "query_id": "119360",
+      "question": "Để cấp Giấy phép môi trường thì cần căn cứ vào các yếu tố nào?",
+      "gold_ids": [
+        "299694"
+      ],
+      "gold_titles": [
+        "Luat-so-72-2020-QH14-Bao-ve-moi-truong-2020-431147"
+      ],
+      "hybrid_ids": [
+        "288406",
+        "51256",
+        "71560",
+        "282917",
+        "303096"
+      ],
+      "hybrid_titles": [
+        "Phap-lenh-Canh-sat-moi-truong-nam-2014-262791",
+        "Nghi-dinh-02-2023-ND-CP-huong-dan-Luat-Tai-nguyen-nuoc-513343",
+        "Nghi-dinh-105-2015-ND-CP-huong-dan-Phap-lenh-Canh-sat-moi-truong-293764",
+        "Thong-tu-40-2014-TT-BTNMT-ve-hanh-nghe-khoan-nuoc-duoi-dat-240759",
+        "Nghi-dinh-08-2022-ND-CP-huong-dan-Luat-Bao-ve-moi-truong-479457"
+      ]
+    },
+    {
+      "query_id": "43760",
+      "question": "Thời hạn cấp Giấy chứng nhận đủ điều kiện buôn bán thuốc bảo vệ thực vật là bao lâu?",
+      "gold_ids": [
+        "21119"
+      ],
+      "gold_titles": [
+        "Quyet-dinh-3573-QD-BNN-BVTV-2022-cong-bo-thu-tuc-hanh-chinh-linh-vuc-bao-ve-thuc-vat-530301"
+      ],
+      "hybrid_ids": [
+        "245029",
+        "69484",
+        "20261",
+        "161687",
+        "254991"
+      ],
+      "hybrid_titles": [
+        "Thong-tu-21-2015-TT-BNNPTNT-quan-ly-thuoc-bao-ve-thuc-vat-277987",
+        "Nghi-dinh-98-2020-ND-CP-xu-phat-vi-pham-hanh-chinh-hoat-dong-san-xuat-buon-ban-hang-gia-406627",
+        "Nghi-dinh-15-2018-ND-CP-huong-dan-Luat-an-toan-thuc-pham-341254",
+        "Thong-tu-11-2022-TT-BNNPTNT-sua-doi-quy-dinh-thu-tuc-hanh-chinh-linh-vuc-bao-ve-thuc-vat-530849",
+        "Nghi-dinh-67-2013-ND-CP-huong-dan-kinh-doanh-thuoc-la-196542"
+      ]
+    },
+    {
+      "query_id": "7340",
+      "question": "Trưởng đoàn thanh tra chuyên ngành Bộ Tư pháp có quyền xử phạt người giám định tư pháp không giải thích kết luận giám định không?",
+      "gold_ids": [
+        "293727"
+      ],
+      "gold_titles": [
+        "Nghi-dinh-82-2020-ND-CP-xu-phat-hanh-chinh-linh-vuc-hon-nhan-thi-hanh-an-pha-san-doanh-nghiep-392611"
+      ],
+      "hybrid_ids": [
+        "227748",
+        "62582",
+        "79032",
+        "51323",
+        "102434"
+      ],
+      "hybrid_titles": [
+        "Nghi-dinh-33-2015-ND-CP-thuc-hien-ket-luan-thanh-tra-269681",
+        "Luat-giam-dinh-tu-phap-2012-142764",
+        "Thong-tu-128-2021-TT-BCA-quy-trinh-thanh-tra-chuyen-nganh-cua-Cong-an-nhan-dan-505456",
+        "Quyet-dinh-4129-QD-TCHQ-2017-Quy-dinh-to-chuc-cong-tac-Doan-thanh-tra-nganh-hai-quan-369874",
+        "Bo-luat-to-tung-hinh-su-2015-296884"
+      ]
+    },
+    {
+      "query_id": "121882",
+      "question": "Trong trường hợp nào thì địa điểm kinh doanh được xem là chấm dứt hoạt động?",
+      "gold_ids": [
+        "21398"
+      ],
+      "gold_titles": [
+        "Luat-Doanh-nghiep-so-59-2020-QH14-427301"
+      ],
+      "hybrid_ids": [
+        "157311",
+        "200355",
+        "30157",
+        "243709",
+        "73119"
+      ],
+      "hybrid_titles": [
+        "Nghi-dinh-68-2016-ND-CP-thu-tuc-thanh-lap-cua-hang-mien-thue-kho-bai-dia-diem-lam-thu-tuc-hai-quan-3",
+        "Nghi-dinh-01-2021-ND-CP-dang-ky-doanh-nghiep-283247",
+        "Thong-tu-19-2019-TT-NHNN-mang-luoi-hoat-dong-cua-to-chuc-tai-chinh-vi-mo-428431",
+        "Thong-tu-53-2018-TT-NHNN-mang-luoi-hoat-dong-cua-to-chuc-tin-dung-phi-ngan-hang-348685",
+        "Thong-tu-21-2013-TT-NHNN-mang-luoi-ngan-hang-thuong-mai-206666"
+      ]
+    },
+    {
+      "query_id": "55984",
+      "question": "Thực hiện theo dõi công tác bồi thường nhà nước dựa vào căn cứ nào?",
+      "gold_ids": [
+        "272017"
+      ],
+      "gold_titles": [
+        "Thong-tu-08-2019-TT-BTP-thuc-hien-chuc-nang-quan-ly-nha-nuoc-ve-cong-tac-boi-thuong-nha-nuoc-431122"
+      ],
+      "hybrid_ids": [
+        "199839",
+        "21492",
+        "70598",
+        "133451",
+        "236416"
+      ],
+      "hybrid_titles": [
+        "Quyet-dinh-657-QD-TCT-2023-Quy-che-giai-quyet-boi-thuong-nha-nuoc-tai-co-quan-Thue-cac-cap-568468",
+        "Luat-Trach-nhiem-boi-thuong-cua-Nha-nuoc-2017-313517",
+        "Thong-tu-04-2018-TT-BTP-bieu-mau-cong-tac-boi-thuong-nha-nuoc-382662",
+        "Thong-tu-lien-tich-02-2017-TTLT-VKSNDTC-TANDTC-BCA-BQP-tra-ho-so-de-dieu-tra-bo-sung-373445",
+        "Thong-tu-42-2023-TT-BTC-co-che-tai-chinh-thuc-hien-boi-duong-can-bo-lanh-dao-bang-ngan-sach-569463"
+      ]
+    },
+    {
+      "query_id": "104238",
+      "question": "Uống rượu bia gây tai nạn giao thông chết người bồi thường cho người bị tai nạn như thế nào?",
+      "gold_ids": [
+        "81598"
+      ],
+      "gold_titles": [
+        "Bo-luat-dan-su-2015-296215"
+      ],
+      "hybrid_ids": [
+        "153444",
+        "155417",
+        "79670",
+        "6440",
+        "145143"
+      ],
+      "hybrid_titles": [
+        "Luat-Phong-chong-tac-hai-cua-ruou-bia-336620",
+        "Thong-tu-63-2020-TT-BCA-dieu-tra-giai-quyet-tai-nan-giao-thong-duong-bo-cua-Canh-sat-giao-thong-3038",
+        "",
+        "Nghi-quyet-48-NQ-CP-2022-bao-dam-trat-tu-an-toan-giao-thong-va-chong-un-tac-giao-thong-509181",
+        ""
+      ]
+    }
+  ],
+  "partially_retrieved_examples": [
+    {
+      "query_id": "50596",
+      "question": "Đối tượng nào được miễn chi phí giám định trong tố tụng dân sự?",
+      "gold_ids": [
+        "204396",
+        "21538",
+        "46918"
+      ],
+      "gold_titles": [
+        "Nghi-dinh-07-2021-ND-CP-quy-dinh-chuan-ngheo-da-chieu-giai-doan-2021-2025-463908",
+        "Phap-lenh-chi-phi-giam-dinh-dinh-gia-cho-nguoi-lam-chung-phien-dich-trong-to-139001",
+        "Bo-luat-to-tung-dan-su-2015-296861"
+      ],
+      "hybrid_ids": [
+        "21538",
+        "90853",
+        "62582",
+        "230498",
+        "260763"
+      ],
+      "hybrid_titles": [
+        "Phap-lenh-chi-phi-giam-dinh-dinh-gia-cho-nguoi-lam-chung-phien-dich-trong-to-139001",
+        "Nghi-quyet-326-2016-UBTVQH14-muc-thu-mien-giam-thu-nop-quan-ly-su-dung-an-phi-le-phi-Toa-an-337085",
+        "Luat-giam-dinh-tu-phap-2012-142764",
+        "Thong-tu-lien-tich-10-2018-TTLT-BTP-BCA-BQP-BTC-TANDTC-VKSNDTC-tro-giup-phap-ly-trong-to-tung-394343",
+        "Nghi-dinh-85-2013-ND-CP-huong-dan-thi-hanh-Luat-giam-dinh-tu-phap-202640"
+      ]
+    },
+    {
+      "query_id": "50066",
+      "question": "Chi nhánh của doanh nghiệp có tư cách pháp nhân không?",
+      "gold_ids": [
+        "21398",
+        "81598"
+      ],
+      "gold_titles": [
+        "Luat-Doanh-nghiep-so-59-2020-QH14-427301",
+        "Bo-luat-dan-su-2015-296215"
+      ],
+      "hybrid_ids": [
+        "187218",
+        "21398",
+        "178057",
+        "16528",
+        "230266"
+      ],
+      "hybrid_titles": [
+        "Nghi-dinh-07-2016-ND-CP-quy-dinh-chi-tiet-van-phong-dai-dien-chi-nhanh-thuong-nhan-nuoc-ngoai-301477",
+        "Luat-Doanh-nghiep-so-59-2020-QH14-427301",
+        "Luat-Kinh-doanh-bao-hiem-2022-465916",
+        "Thong-tu-70-2022-TT-BTC-quan-tri-rui-ro-kiem-soat-noi-bo-doanh-nghiep-bao-hiem-tai-bao-hiem-542556",
+        "Quyet-dinh-171-QD-TW-2013-chuc-nang-nhiem-vu-dang-bo-chi-bo-co-so-doanh-nghiep-von-nuoc-ngoai-282779"
+      ]
+    },
+    {
+      "query_id": "31410",
+      "question": "Chính sách khoanh nuôi xúc tiến tái sinh rừng theo Chương trình mục tiêu quốc gia phát triển kinh tế - xã hội vùng đồng bào dân tộc thiểu số và miền núi giai đoạn 2021-2025?",
+      "gold_ids": [
+        "10053",
+        "103777",
+        "232217",
+        "292875"
+      ],
+      "gold_titles": [
+        "Nghi-dinh-75-2015-ND-CP-bao-ve-phat-trien-rung-gan-giam-ngheo-nhanh-ben-vung-ho-tro-dong-bao-dan-toc",
+        "Thong-tu-29-2018-TT-BNNPTNT-quy-dinh-bien-phap-lam-sinh-402850",
+        "Thong-tu-15-2019-TT-BNNPTNT-quan-ly-dau-tu-cong-trinh-lam-sinh-427949",
+        "Thong-tu-12-2022-TT-BNNPTNT-huong-dan-hoat-dong-lam-nghiep-phat-trien-lam-nghiep-ben-vung-530313"
+      ],
+      "hybrid_ids": [
+        "292875",
+        "82252",
+        "172183",
+        "103777",
+        "14582"
+      ],
+      "hybrid_titles": [
+        "Thong-tu-12-2022-TT-BNNPTNT-huong-dan-hoat-dong-lam-nghiep-phat-trien-lam-nghiep-ben-vung-530313",
+        "Quyet-dinh-1719-QD-TTg-2021-Chuong-trinh-phat-trien-kinh-te-xa-hoi-vung-dan-toc-thieu-so-491217",
+        "Thong-tu-02-2022-TT-UBDT-huong-dan-du-an-Chuong-trinh-phat-trien-kinh-te-dan-toc-thieu-so-521070",
+        "Thong-tu-29-2018-TT-BNNPTNT-quy-dinh-bien-phap-lam-sinh-402850",
+        "Quyet-dinh-809-QD-TTg-2022-Chuong-trinh-phat-trien-lam-nghiep-ben-vung-2021-2025-521569"
+      ]
+    },
+    {
+      "query_id": "90914",
+      "question": "Lái xe phục vụ chức danh Phó Chủ tịch nước có được hưởng phụ cấp trách nhiệm công việc hay không?",
+      "gold_ids": [
+        "107157",
+        "43443"
+      ],
+      "gold_titles": [
+        "Thong-tu-05-2005-TT-BNV-huong-dan-che-do-phu-cap-trach-nhiem-cong-viec-can-bo-cong-chuc-vien-chuc-52",
+        "Nghi-dinh-38-2019-ND-CP-muc-luong-co-so-doi-voi-can-bo-cong-chuc-vien-chuc-va-luc-luong-vu-trang-403"
+      ],
+      "hybrid_ids": [
+        "107157",
+        "79681",
+        "61431",
+        "75885",
+        "50885"
+      ],
+      "hybrid_titles": [
+        "Thong-tu-05-2005-TT-BNV-huong-dan-che-do-phu-cap-trach-nhiem-cong-viec-can-bo-cong-chuc-vien-chuc-52",
+        "Quyet-dinh-27-2012-QD-TTg-quy-dinh-che-do-phu-cap-trach-nhiem-theo-nghe-140617",
+        "Nghi-dinh-34-2012-ND-CP-che-do-phu-cap-cong-vu-138075",
+        "Nghi-dinh-68-2000-ND-CP-thuc-hien-che-do-hop-dong-loai-cong-viec-trong-co-quan-hanh-chinh-nha-nuoc-d",
+        "Nghi-dinh-100-2019-ND-CP-xu-phat-vi-pham-hanh-chinh-linh-vuc-giao-thong-duong-bo-va-duong-sat-426369"
+      ]
+    },
+    {
+      "query_id": "48348",
+      "question": "Quyết định công nhận tổ chức khảo nghiệm phân bón bị thu hồi trong những trường hợp nào?",
+      "gold_ids": [
+        "108670",
+        "73367"
+      ],
+      "gold_titles": [
+        "Luat-Trong-trot-2018-336355",
+        "Nghi-dinh-84-2019-ND-CP-quy-dinh-quan-ly-phan-bon-411943"
+      ],
+      "hybrid_ids": [
+        "73367",
+        "278236",
+        "267609",
+        "271411",
+        "178081"
+      ],
+      "hybrid_titles": [
+        "Nghi-dinh-84-2019-ND-CP-quy-dinh-quan-ly-phan-bon-411943",
+        "Quyet-dinh-5148-QD-BNN-BVTV-2019-boi-duong-chuyen-mon-va-huong-dan-su-dung-phan-bon-450976",
+        "",
+        "Nghi-dinh-55-2018-ND-CP-quy-dinh-ve-xu-phat-vi-pham-hanh-chinh-trong-linh-vuc-phan-bon-352668",
+        "Quyet-dinh-17-2004-QD-BNV-phe-duyet-Dieu-le-Hiep-hoi-Phan-bon-Viet-Nam-17340"
+      ]
+    },
+    {
+      "query_id": "15998",
+      "question": "Bị viêm phổi do covid-19 thì có đi nghĩa vụ quân sự không?",
+      "gold_ids": [
+        "189082",
+        "297709"
+      ],
+      "gold_titles": [
+        "Thong-tu-lien-tich-16-2016-TTLT-BYT-BQP-kham-suc-khoe-thuc-hien-nghia-vu-quan-su-320439",
+        "Thong-tu-148-2018-TT-BQP-quy-dinh-tuyen-chon-va-goi-cong-dan-nhap-ngu-396402"
+      ],
+      "hybrid_ids": [
+        "189082",
+        "30599",
+        "29716",
+        "27645",
+        "205038"
+      ],
+      "hybrid_titles": [
+        "Thong-tu-lien-tich-16-2016-TTLT-BYT-BQP-kham-suc-khoe-thuc-hien-nghia-vu-quan-su-320439",
+        "Thong-tu-02-2023-TT-BYT-sua-doi-Thong-tu-15-2016-TT-BYT-benh-nghe-nghiep-huong-bao-hiem-488694",
+        "Quyet-dinh-2232-QD-BCDQG-2020-Thuc-hien-Huong-dan-phong-chong-dich-COVID-19-tai-le-tang-447546",
+        "Nghi-dinh-29-2022-ND-CP-huong-dan-Nghi-quyet-12-2021-UBTVQH15-511844",
+        "Nghi-quyet-1032-2020-UBTVQH14-cap-bac-quan-ham-cao-nhat-Benh-vien-Trung-uong-Quan-doi-108-456378"
+      ]
+    },
+    {
+      "query_id": "2358",
+      "question": "Thời hiệu xử lý kỷ luật đối với công chức cấp huyện là gì?",
+      "gold_ids": [
+        "109796",
+        "220359"
+      ],
+      "gold_titles": [
+        "Nghi-dinh-112-2020-ND-CP-xu-ly-ky-luat-can-bo-cong-chuc-vien-chuc-453227",
+        "Luat-can-bo-cong-chuc-2008-22-2008-QH12-82202"
+      ],
+      "hybrid_ids": [
+        "109796",
+        "273261",
+        "299574",
+        "208565",
+        "110305"
+      ],
+      "hybrid_titles": [
+        "Nghi-dinh-112-2020-ND-CP-xu-ly-ky-luat-can-bo-cong-chuc-vien-chuc-453227",
+        "Nghi-dinh-112-2011-ND-CP-cong-chuc-xa-phuong-thi-tran-132674",
+        "",
+        "Quy-dinh-102-QD-TW-2017-xu-ly-ky-luat-dang-vien-vi-pham-368751",
+        "Thong-tu-75-2020-TT-BQP-hinh-thuc-ky-luat-tham-quyen-xu-ly-ky-luat-doi-voi-Dan-quan-tu-ve-447470"
+      ]
+    },
+    {
+      "query_id": "65848",
+      "question": "Tổ chức huấn luyện an toàn vệ sinh lao động trong Bộ Quốc phòng hạng A cần đáp ứng những điều kiện gì?",
+      "gold_ids": [
+        "136441",
+        "235672"
+      ],
+      "gold_titles": [
+        "",
+        "Luat-an-toan-ve-sinh-lao-dong-2015-281961"
+      ],
+      "hybrid_ids": [
+        "116851",
+        "136441",
+        "277767",
+        "274746",
+        "31897"
+      ],
+      "hybrid_titles": [
+        "Thong-tu-02-2017-TT-BQP-hoat-dong-huan-luyen-an-toan-ve-sinh-lao-dong-337143",
+        "",
+        "Thong-tu-142-2017-TT-BQP-chuc-nang-quyen-han-cong-tac-an-toan-ve-sinh-lao-dong-Bo-Quoc-phong-353611",
+        "Thong-tu-19-2016-TT-BYT-quan-ly-ve-sinh-lao-dong-suc-khoe-nguoi-lao-dong-322881",
+        "Thong-tu-16-2017-TT-BLDTBXH-kiem-dinh-lao-dong-may-thiet-bi-vat-tu-co-yeu-cau-nghiem-ngat-355046"
+      ]
+    },
+    {
+      "query_id": "67398",
+      "question": "Các biện pháp cảnh vệ nào được áp dụng đối với khu vực trọng yếu thuộc đối tượng cảnh vệ?",
+      "gold_ids": [
+        "126826",
+        "246977"
+      ],
+      "gold_titles": [
+        "Luat-An-ninh-Quoc-gia-2004-32-2004-QH11-52656",
+        "Luat-Canh-ve-2017-280117"
+      ],
+      "hybrid_ids": [
+        "246977",
+        "224702",
+        "174451",
+        "255913",
+        "141008"
+      ],
+      "hybrid_titles": [
+        "Luat-Canh-ve-2017-280117",
+        "Thong-tu-162-2018-TT-BQP-che-do-phu-cap-dac-thu-doi-voi-luc-luong-Canh-ve-thuoc-Bo-Quoc-phong-399832",
+        "Nghi-dinh-93-2022-ND-CP-quan-ly-bao-dam-an-ninh-trat-tu-tai-cua-khau-duong-hang-khong-537145",
+        "Nghi-dinh-37-2022-ND-CP-sua-doi-Nghi-dinh-xu-phat-vi-pham-quoc-phong-bao-ve-bien-gioi-quoc-gia-51609",
+        "Thong-tu-58-2015-TT-BCA-tuan-tra-kiem-soat-bao-dam-an-ninh-trat-tu-an-toan-xa-hoi-luc-luong-canh-sat"
+      ]
+    },
+    {
+      "query_id": "147324",
+      "question": "Đề án thuộc Chương trình phát triển công nghiệp hỗ trợ được xây dựng theo nguyên tắc nào?",
+      "gold_ids": [
+        "55016",
+        "64714",
+        "76876"
+      ],
+      "gold_titles": [
+        "Quyet-dinh-1403-QD-BCT-2020-thuc-hien-va-quan-ly-Chuong-trinh-phat-trien-cong-nghiep-ho-tro-464165",
+        "Nghi-dinh-111-2015-ND-CP-phat-trien-cong-nghiep-ho-tro-294699",
+        "Quyet-dinh-68-QD-TTg-phe-duyet-Chuong-trinh-phat-trien-cong-nghiep-ho-tro-2016-2025-2017-338169"
+      ],
+      "hybrid_ids": [
+        "55016",
+        "242663",
+        "64714",
+        "172183",
+        "131735"
+      ],
+      "hybrid_titles": [
+        "Quyet-dinh-1403-QD-BCT-2020-thuc-hien-va-quan-ly-Chuong-trinh-phat-trien-cong-nghiep-ho-tro-464165",
+        "Thong-tu-29-2018-TT-BTC-huong-dan-quan-ly-kinh-phi-Chuong-trinh-phat-trien-cong-nghiep-ho-tro-380954",
+        "Nghi-dinh-111-2015-ND-CP-phat-trien-cong-nghiep-ho-tro-294699",
+        "Thong-tu-02-2022-TT-UBDT-huong-dan-du-an-Chuong-trinh-phat-trien-kinh-te-dan-toc-thieu-so-521070",
+        ""
+      ]
+    },
+    {
+      "query_id": "158174",
+      "question": "Doanh nghiệp có vốn đầu tư nước ngoài không được kinh doanh chuyển khẩu hàng hóa?",
+      "gold_ids": [
+        "220365",
+        "259205"
+      ],
+      "gold_titles": [
+        "Luat-Thuong-mai-2005-36-2005-QH11-2633",
+        "Nghi-dinh-69-2018-ND-CP-huong-dan-Luat-Quan-ly-ngoai-thuong-382305"
+      ],
+      "hybrid_ids": [
+        "96409",
+        "142423",
+        "259205",
+        "2113",
+        "42223"
+      ],
+      "hybrid_titles": [
+        "Nghi-dinh-09-2018-ND-CP-quy-dinh-chi-tiet-Luat-thuong-mai-va-Luat-Quan-ly-ngoai-thuong-372647",
+        "",
+        "Nghi-dinh-69-2018-ND-CP-huong-dan-Luat-Quan-ly-ngoai-thuong-382305",
+        "Luat-Dau-tu-so-61-2020-QH14-321051",
+        "Thong-tu-200-2014-TT-BTC-huong-dan-Che-do-ke-toan-Doanh-nghiep-263599"
+      ]
+    },
+    {
+      "query_id": "19560",
+      "question": "Số lượng cán bộ cấp xã tối đa là bao nhiêu theo quy định pháp luật hiện hành?",
+      "gold_ids": [
+        "277076",
+        "27980"
+      ],
+      "gold_titles": [
+        "Nghi-dinh-92-2009-ND-CP-chuc-danh-so-luong-che-do-chinh-sach-can-bo-cong-chuc-o-xa-phuong-thi-tran-v",
+        "Nghi-quyet-1211-2016-UBTVQH13-tieu-chuan-don-vi-hanh-chinh-phan-loai-don-vi-hanh-chinh-317085"
+      ],
+      "hybrid_ids": [
+        "277076",
+        "145175",
+        "129823",
+        "118485",
+        "263931"
+      ],
+      "hybrid_titles": [
+        "Nghi-dinh-92-2009-ND-CP-chuc-danh-so-luong-che-do-chinh-sach-can-bo-cong-chuc-o-xa-phuong-thi-tran-v",
+        "Nghi-dinh-33-2023-ND-CP-can-bo-cong-chuc-cap-xa-va-nguoi-hoat-dong-khong-chuyen-trach-o-cap-xa-56060",
+        "Bo-Luat-lao-dong-2019-333670",
+        "Thong-tu-13-2019-TT-BNV-can-bo-cong-chuc-cap-xa-va-nguoi-hoat-dong-khong-chuyen-trach-o-cap-xa-42744",
+        "Thong-tu-lien-tich-03-2010-TTLT-BNV-BTC-BLDTB-XH-huong-dan-Nghi-dinh-92-2009-ND-106746"
+      ]
+    },
+    {
+      "query_id": "67050",
+      "question": "Người tiếp công dân trong ngành Kiểm sát nhân dân phải làm các thủ tục tiếp nhận khiếu nại và các chứng cứ kèm theo do người khiếu nại cung cấp khi nào?",
+      "gold_ids": [
+        "102100",
+        "104374"
+      ],
+      "gold_titles": [
+        "Quyet-dinh-249-QD-VKSTC-2020-Quy-dinh-quy-trinh-tiep-cong-dan-nganh-Kiem-sat-nhan-dan-447568",
+        "Luat-khieu-nai-2011-132446"
+      ],
+      "hybrid_ids": [
+        "102100",
+        "268596",
+        "251260",
+        "67876",
+        "125833"
+      ],
+      "hybrid_titles": [
+        "Quyet-dinh-249-QD-VKSTC-2020-Quy-dinh-quy-trinh-tiep-cong-dan-nganh-Kiem-sat-nhan-dan-447568",
+        "Quyet-dinh-802-QD-TCHQ-quy-che-tiep-cong-dan-hai-quan-2016-307630",
+        "Quyet-dinh-546-QD-VKSTC-2018-quy-dinh-quy-trinh-giai-quyet-khieu-nai-to-cao-405014",
+        "Quyet-dinh-51-QD-VKSTC-V12-quy-che-tiep-cong-dan-kiem-sat-giai-quyet-khieu-nai-to-cao-tu-phap-2016-3",
+        "Luat-tiep-cong-dan-2013-215839"
+      ]
+    },
+    {
+      "query_id": "26598",
+      "question": "Phụ cấp độc hại đối với nhân viên thiết bị trong trường học ra sao?",
+      "gold_ids": [
+        "53209",
+        "91149"
+      ],
+      "gold_titles": [
+        "Thong-tu-07-2005-TT-BNV-huong-dan-che-do-phu-cap-doc-hai-nguy-hiem-can-bo-cong-chuc-vien-chuc-52778",
+        ""
+      ],
+      "hybrid_ids": [
+        "100945",
+        "60237",
+        "53209",
+        "202675",
+        "285994"
+      ],
+      "hybrid_titles": [
+        "Nghi-dinh-113-2015-ND-CP-phu-cap-dac-thu-trach-nhiem-cong-viec-nguy-hiem-nha-giao-co-so-giao-duc-ngh",
+        "Thong-tu-22-2017-TT-BLDTBXH-huong-dan-113-2015-ND-CP-phu-cap-dac-thu-uu-dai-trach-nhiem-345393",
+        "Thong-tu-07-2005-TT-BNV-huong-dan-che-do-phu-cap-doc-hai-nguy-hiem-can-bo-cong-chuc-vien-chuc-52778",
+        "Thong-tu-lien-tich-01-2006-TTLT-VKSTC-BNV-BTC-huong-dan-QD138-2005-QD-TTg-che-do-phu-cap-trach-nhiem",
+        ""
+      ]
+    },
+    {
+      "query_id": "151118",
+      "question": "Người có hành vi mua dâm trong đường dây môi giới mại dâm bị xử lý như thế nào?",
+      "gold_ids": [
+        "245154",
+        "98892"
+      ],
+      "gold_titles": [
+        "Bo-luat-hinh-su-2015-296661",
+        "Nghi-dinh-144-2021-ND-CP-xu-phat-vi-pham-hanh-chinh-linh-vuc-an-ninh-an-toan-xa-hoi-425471"
+      ],
+      "hybrid_ids": [
+        "69484",
+        "186220",
+        "127445",
+        "220365",
+        "245154"
+      ],
+      "hybrid_titles": [
+        "Nghi-dinh-98-2020-ND-CP-xu-phat-vi-pham-hanh-chinh-hoat-dong-san-xuat-buon-ban-hang-gia-406627",
+        "Phap-lenh-phong-chong-mai-dam-2003-10-2003-PL-UBTVQH11-50643",
+        "Luat-66-2011-QH12-phong-chong-mua-ban-nguoi-122148",
+        "Luat-Thuong-mai-2005-36-2005-QH11-2633",
+        "Bo-luat-hinh-su-2015-296661"
+      ]
+    },
+    {
+      "query_id": "147956",
+      "question": "Nhiệm vụ của giáo viên tiểu học hạng 3 trường công lập là gì?",
+      "gold_ids": [
+        "10719",
+        "200477"
+      ],
+      "gold_titles": [
+        "Thong-tu-08-2023-TT-BGDDT-sua-doi-Thong-tu-01-2021-TT-BGDDT-02-2021-TT-BGDDT-514067",
+        "Thong-tu-02-2021-TT-BGDDT-ma-so-tieu-chuan-chuc-danh-vien-chuc-trong-truong-tieu-hoc-cong-lap-464397"
+      ],
+      "hybrid_ids": [
+        "76184",
+        "210717",
+        "92545",
+        "205996",
+        "200477"
+      ],
+      "hybrid_titles": [
+        "Thong-tu-03-2021-TT-BGDDT-ma-so-tieu-chuan-vien-chuc-giang-day-truong-trung-hoc-co-so-cong-lap-46439",
+        "Thong-tu-03-2018-TT-BLDTBXH-tieu-chuan-chuc-danh-vien-chuc-chuyen-nganh-giao-duc-nghe-nghiep-385452",
+        "Thong-tu-lien-tich-21-2015-TTLT-BGDDT-BNV-ma-so-tieu-chuan-chuc-danh-nghe-nghiep-giao-vien-tieu-hoc-",
+        "Thong-tu-34-2021-TT-BGDDT-tieu-chuan-xet-thang-hang-chuc-danh-giao-vien-mam-non-496392",
+        "Thong-tu-02-2021-TT-BGDDT-ma-so-tieu-chuan-chuc-danh-vien-chuc-trong-truong-tieu-hoc-cong-lap-464397"
+      ]
+    },
+    {
+      "query_id": "114142",
+      "question": "Thủ tục đăng ký tham dự kiểm tra kết quả tập sự hành nghề công chứng được thực hiện như thế nào?",
+      "gold_ids": [
+        "101199",
+        "53066"
+      ],
+      "gold_titles": [
+        "Thong-tu-04-2015-TT-BTP-huong-dan-tap-su-hanh-nghe-cong-chung-272899",
+        "Quyet-dinh-991-QD-BTP-2021-cong-bo-thu-tuc-hanh-chinh-linh-vuc-cong-chung-cua-Bo-Tu-phap-479005"
+      ],
+      "hybrid_ids": [
+        "101199",
+        "52090",
+        "114415",
+        "207476",
+        "201743"
+      ],
+      "hybrid_titles": [
+        "Thong-tu-04-2015-TT-BTP-huong-dan-tap-su-hanh-nghe-cong-chung-272899",
+        "Thong-tu-10-2021-TT-BTP-huong-dan-tap-su-hanh-nghe-luat-su-497767",
+        "Luat-Cong-chung-2014-238638",
+        "Thong-tu-01-2021-TT-BTP-huong-dan-Luat-Cong-chung-465909",
+        "Quyet-dinh-1724-QD-BTP-2020-cong-bo-thu-tuc-hanh-chinh-linh-vuc-dau-gia-tai-san-451452"
+      ]
+    },
+    {
+      "query_id": "164650",
+      "question": "Ủy ban Olympic Việt Nam là gì?",
+      "gold_ids": [
+        "190189",
+        "78406"
+      ],
+      "gold_titles": [
+        "Quyet-dinh-1361-QD-BNV-nam-2012-phe-duyet-Dieu-le-sua-doi-bo-sung-Uy-ban-Olympic-165052",
+        "Luat-The-duc-The-thao-2006-77-2006-QH11-15870"
+      ],
+      "hybrid_ids": [
+        "190189",
+        "204209",
+        "243058",
+        "226238",
+        "87348"
+      ],
+      "hybrid_titles": [
+        "Quyet-dinh-1361-QD-BNV-nam-2012-phe-duyet-Dieu-le-sua-doi-bo-sung-Uy-ban-Olympic-165052",
+        "Quyet-dinh-727-QD-BNV-2022-phe-duyet-Dieu-le-sua-doi-Hiep-hoi-Cau-ca-the-thao-Viet-Nam-530529",
+        "Quyet-dinh-224-QD-BNV-nam-2010-phe-duyet-dieu-le-cua-lien-doan-bong-da-179541",
+        "Quyet-dinh-787-QD-BNV-2013-phe-duyet-Dieu-le-Hiep-hoi-The-thao-duoi-nuoc-Viet-Nam-204268",
+        "Quyet-dinh-182-QD-BNV-nam-2013-Dieu-le-sua-doi-Lien-doan-The-duc-Viet-Nam-176222"
+      ]
+    },
+    {
+      "query_id": "159094",
+      "question": "Đề xuất bổ sung quy định mới về gia hạn thời hạn bảo vệ bí mật nhà nước trong lĩnh vực kế hoạch đầu tư?",
+      "gold_ids": [
+        "122987",
+        "136664"
+      ],
+      "gold_titles": [
+        "Thong-tu-24-2020-TT-BCA-bieu-mau-su-dung-trong-cong-tac-bao-ve-bi-mat-nha-nuoc-437913",
+        "Thong-tu-07-2020-TT-BKHDT-cong-tac-bao-ve-bi-mat-nha-nuoc-linh-vuc-ke-hoach-dau-tu-va-thong-ke-45744"
+      ],
+      "hybrid_ids": [
+        "210883",
+        "35448",
+        "2113",
+        "103779",
+        "136664"
+      ],
+      "hybrid_titles": [
+        "Luat-Bao-ve-bi-mat-nha-nuoc-2018-337064",
+        "Thong-tu-104-2021-TT-BCA-bao-ve-bi-mat-nha-nuoc-trong-Cong-an-nhan-dan-338862",
+        "Luat-Dau-tu-so-61-2020-QH14-321051",
+        "Luat-Dau-tu-cong-2019-362113",
+        "Thong-tu-07-2020-TT-BKHDT-cong-tac-bao-ve-bi-mat-nha-nuoc-linh-vuc-ke-hoach-dau-tu-va-thong-ke-45744"
+      ]
+    },
+    {
+      "query_id": "102718",
+      "question": "Những nội dung nào liên quan công tác hậu kiểm về an toàn thực phẩm năm 2023?",
+      "gold_ids": [
+        "170911",
+        "282872",
+        "42184",
+        "45352"
+      ],
+      "gold_titles": [
+        "Quyet-dinh-3081-QD-BYT-2020-bao-cao-mau-bieu-ve-an-toan-thuc-pham-thuoc-nganh-y-te-459829",
+        "",
+        "Chi-thi-17-CT-TTg-2017-tang-cuong-quan-ly-nha-nuoc-chan-chinh-hoat-dong-quang-cao-348756",
+        "Nghi-dinh-115-2018-ND-CP-quy-dinh-xu-phat-vi-pham-hanh-chinh-ve-an-toan-thuc-pham-360333"
+      ],
+      "hybrid_ids": [
+        "282872",
+        "215129",
+        "299215",
+        "13074",
+        "186125"
+      ],
+      "hybrid_titles": [
+        "",
+        "Chi-thi-17-CT-TW-2022-tang-cuong-bao-dam-an-toan-thuc-pham-trong-tinh-hinh-moi-536233",
+        "",
+        "Quyet-dinh-300-QD-TTg-2023-chuyen-doi-he-thong-luong-thuc-thuc-pham-minh-bach-560858",
+        "Chi-thi-03-CT-TTg-2023-don-doc-thuc-hien-nhiem-vu-trong-tam-sau-ky-nghi-Tet-nguyen-dan-551858"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Legal Search Demo</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="topbar">
+        <div class="brand-mark">L</div>
+        <div>
+          <p class="eyebrow">UIT Data Science Challenge</p>
+          <h1>Legal Search</h1>
+        </div>
+        <span class="status"><i></i> Demo mode</span>
+      </header>
+
+      <section class="hero">
+        <p class="eyebrow">Vietnamese legal information retrieval</p>
+        <h2>Hỏi một câu hỏi pháp luật</h2>
+        <p class="hero-copy">Hệ thống tìm văn bản liên quan, sau đó hiển thị câu trả lời có nguồn tham khảo.</p>
+        <form id="searchForm" class="search-box">
+          <textarea id="question" rows="2" placeholder="Ví dụ: Điều kiện để hành nghề quản tài viên là gì?"></textarea>
+          <button type="submit">Tìm kiếm <span>⌘ ↵</span></button>
+        </form>
+        <div class="suggestions">
+          <button data-question="Điều kiện để hành nghề quản tài viên là gì?">Quản tài viên</button>
+          <button data-question="Đi đăng ký khai sinh cho con cần chuẩn bị giấy tờ gì?">Đăng ký khai sinh</button>
+          <button data-question="Kiểm ngư viên trung cấp có nhiệm vụ gì?">Kiểm ngư viên</button>
+        </div>
+      </section>
+
+      <section id="result" class="result-grid is-hidden">
+        <article class="answer-card">
+          <div class="card-heading">
+            <div>
+              <p class="eyebrow">Grounded answer</p>
+              <h3>Câu trả lời tóm tắt</h3>
+            </div>
+            <span class="confidence">Độ tin cậy 92%</span>
+          </div>
+          <p id="answerText" class="answer-text"></p>
+          <div class="notice"><strong>Lưu ý:</strong> Đây là câu trả lời minh họa. Hệ thống thi thật trước hết trả về document ID.</div>
+        </article>
+
+        <aside class="sources-card">
+          <div class="card-heading">
+            <div>
+              <p class="eyebrow">Retrieved documents</p>
+              <h3>Nguồn được tìm thấy</h3>
+            </div>
+            <span class="count">Top 3</span>
+          </div>
+          <div id="sources" class="sources"></div>
+        </aside>
+      </section>
+
+      <section class="how-it-works">
+        <div><span>01</span><strong>Câu hỏi</strong><p>Người dùng nhập câu hỏi tiếng Việt.</p></div>
+        <div><span>02</span><strong>Retrieval</strong><p>Hệ thống tìm các passage liên quan.</p></div>
+        <div><span>03</span><strong>Căn cứ</strong><p>Hiển thị ID và nguồn pháp luật.</p></div>
+      </section>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>

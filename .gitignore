@@ -1,0 +1,27 @@
+.venv/
+models/
+__pycache__/
+*.pyc
+
+# Competition data and generated model artifacts: do not publish.
+data/
+submissions/
+tmp/
+*.npy
+*.npz
+*.pt
+*.bin
+*.safetensors
+
+# Secrets and local-machine files.
+.env
+.env.*
+.DS_Store
+
+# Mission Control build artifacts (the source and standalone shared report stay tracked).
+output/html/legalir-team-mission-control/node_modules/
+output/html/legalir-team-mission-control/dist/
+output/html/legalir-team-mission-control/qa-*.png
+output/html/legalir-team-mission-control/.openai/
+output/html/legalir-team-mission-control/.vercel/
+output/html/legalir-team-mission-control/legalir_team_mission_control.html

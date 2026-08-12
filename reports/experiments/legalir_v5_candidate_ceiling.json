@@ -1,0 +1,554 @@
+{
+  "queries": 1003,
+  "selected_recall_at_5": 0.805916,
+  "candidate_recall": {
+    "at_5": 0.76238,
+    "at_10": 0.829844,
+    "at_20": 0.876371,
+    "at_50": 0.917664,
+    "at_100": 0.942173
+  },
+  "queries_with_missed_gold_recoverable_in_top100": 158,
+  "queries_with_all_missed_gold_outside_top100": 63,
+  "missed_gold_rank_bands": {
+    "rank_21_50": 52,
+    "rank_1_10": 31,
+    "outside_top100": 78,
+    "rank_11_20": 58,
+    "rank_51_100": 28
+  },
+  "nearest_recoverable_examples": [
+    {
+      "query_id": "16392",
+      "question": "Doanh nghiệp cung ứng dịch vụ bưu chính thay đổi người đại diện theo pháp luật có cần phải thông báo đến cơ quan có thẩm quyền không?",
+      "gold_ids": [
+        "68834"
+      ],
+      "selected_ids": [
+        "31434",
+        "97900",
+        "148590",
+        "177058",
+        "125008"
+      ],
+      "missed_gold_candidate_ranks": {
+        "68834": 5
+      }
+    },
+    {
+      "query_id": "114140",
+      "question": "Hành vi xây dựng trang trại chăn nuôi cách khu vực trường học 150m thì bị xử phạt như thế nào?",
+      "gold_ids": [
+        "293254",
+        "181685"
+      ],
+      "selected_ids": [
+        "293254",
+        "153173",
+        "81400",
+        "236167",
+        "58584"
+      ],
+      "missed_gold_candidate_ranks": {
+        "181685": 5
+      }
+    },
+    {
+      "query_id": "17606",
+      "question": "Điều kiện được mua nhà ở xã hội năm 2023 là gì?",
+      "gold_ids": [
+        "6411"
+      ],
+      "selected_ids": [
+        "285285",
+        "234846",
+        "64944",
+        "168163",
+        "240063"
+      ],
+      "missed_gold_candidate_ranks": {
+        "6411": 5
+      }
+    },
+    {
+      "query_id": "56900",
+      "question": "Người lao động tự ý nghỉ thêm dịp lễ 30/4 1/5 và giỗ Tổ Hùng Vương 2023 có bị đuổi việc không?",
+      "gold_ids": [
+        "129823"
+      ],
+      "selected_ids": [
+        "160980",
+        "19115",
+        "193581",
+        "177736",
+        "174058"
+      ],
+      "missed_gold_candidate_ranks": {
+        "129823": 5
+      }
+    },
+    {
+      "query_id": "162486",
+      "question": "Khi tổ chức kỷ niệm ngày Truyền thống lực lượng Thanh niên xung phong cần đảm bảo những nguyên tắc gì?",
+      "gold_ids": [
+        "2894"
+      ],
+      "selected_ids": [
+        "158833",
+        "58260",
+        "168533",
+        "105341",
+        "251176"
+      ],
+      "missed_gold_candidate_ranks": {
+        "2894": 5
+      }
+    },
+    {
+      "query_id": "122730",
+      "question": "Cá nhân muốn trở thành Thanh tra viên cao cấp ngành khoa học và công nghệ cần đảm bảo được những tiêu chuẩn gì?",
+      "gold_ids": [
+        "8576",
+        "193936",
+        "236481"
+      ],
+      "selected_ids": [
+        "8576",
+        "75988",
+        "236481",
+        "293518",
+        "155579"
+      ],
+      "missed_gold_candidate_ranks": {
+        "193936": 5
+      }
+    },
+    {
+      "query_id": "34628",
+      "question": "Chứng chỉ hành nghề xây dựng có hiệu lực mấy năm?",
+      "gold_ids": [
+        "42262"
+      ],
+      "selected_ids": [
+        "37894",
+        "42044",
+        "85711",
+        "65326",
+        "35296"
+      ],
+      "missed_gold_candidate_ranks": {
+        "42262": 5
+      }
+    },
+    {
+      "query_id": "98112",
+      "question": "Tội sử dụng trái phép vũ khí quân dụng có mấy khung hình phạt?",
+      "gold_ids": [
+        "245154"
+      ],
+      "selected_ids": [
+        "55840",
+        "65293",
+        "122159",
+        "161003",
+        "98892"
+      ],
+      "missed_gold_candidate_ranks": {
+        "245154": 5
+      }
+    },
+    {
+      "query_id": "121394",
+      "question": "Giấy chứng nhận thành viên bù trừ được Ủy ban chứng khoán nhà nước cấp theo trình tự thủ tục như thế nào?",
+      "gold_ids": [
+        "165780"
+      ],
+      "selected_ids": [
+        "12343",
+        "149676",
+        "151537",
+        "250526",
+        "12716"
+      ],
+      "missed_gold_candidate_ranks": {
+        "165780": 6
+      }
+    },
+    {
+      "query_id": "151008",
+      "question": "Cơ sở in xuất bản phẩm trong Quân đội thì phải đáp ứng điều kiện nào mới được cấp phép hoạt động in?",
+      "gold_ids": [
+        "293879",
+        "55431",
+        "77311"
+      ],
+      "selected_ids": [
+        "144050",
+        "293879",
+        "19627",
+        "77311",
+        "292688"
+      ],
+      "missed_gold_candidate_ranks": {
+        "55431": 6
+      }
+    },
+    {
+      "query_id": "51020",
+      "question": "Người mắc bệnh lao phổi có được trực chế biến, kinh doanh cơ sở dịch vụ ăn uống hay không?",
+      "gold_ids": [
+        "219533",
+        "36009"
+      ],
+      "selected_ids": [
+        "105608",
+        "274746",
+        "102595",
+        "136914",
+        "205584"
+      ],
+      "missed_gold_candidate_ranks": {
+        "219533": 6,
+        "36009": 36
+      }
+    },
+    {
+      "query_id": "118156",
+      "question": "Các loại thuốc cần thiết phải chuẩn bị tại nhà khi mắc COVID-19",
+      "gold_ids": [
+        "164827"
+      ],
+      "selected_ids": [
+        "83120",
+        "54796",
+        "155102",
+        "131361",
+        "93153"
+      ],
+      "missed_gold_candidate_ranks": {
+        "164827": 6
+      }
+    },
+    {
+      "query_id": "48062",
+      "question": "Quân nhân chuyên nghiệp có được nghỉ hưu trước hạn hay không?",
+      "gold_ids": [
+        "97506"
+      ],
+      "selected_ids": [
+        "128503",
+        "66681",
+        "36415",
+        "23402",
+        "86006"
+      ],
+      "missed_gold_candidate_ranks": {
+        "97506": 6
+      }
+    },
+    {
+      "query_id": "50596",
+      "question": "Đối tượng nào được miễn chi phí giám định trong tố tụng dân sự?",
+      "gold_ids": [
+        "21538",
+        "204396",
+        "46918"
+      ],
+      "selected_ids": [
+        "21538",
+        "62582",
+        "260763",
+        "192210",
+        "179734"
+      ],
+      "missed_gold_candidate_ranks": {
+        "204396": null,
+        "46918": 7
+      }
+    },
+    {
+      "query_id": "6402",
+      "question": "Cảng biển đặc biệt sẽ có những chức năng cơ bản nào?",
+      "gold_ids": [
+        "288109"
+      ],
+      "selected_ids": [
+        "170808",
+        "10876",
+        "74349",
+        "26466",
+        "292772"
+      ],
+      "missed_gold_candidate_ranks": {
+        "288109": 7
+      }
+    },
+    {
+      "query_id": "68956",
+      "question": "Quy định về đối tượng bảo hiểm trách nhiệm dân sự với bên thứ ba?",
+      "gold_ids": [
+        "294517",
+        "148391"
+      ],
+      "selected_ids": [
+        "101244",
+        "91673",
+        "216415",
+        "238267",
+        "132797"
+      ],
+      "missed_gold_candidate_ranks": {
+        "294517": 17,
+        "148391": 7
+      }
+    },
+    {
+      "query_id": "163776",
+      "question": "Việc niêm yết công khai văn bản tố tụng sẽ do cơ quan nào thực hiện?",
+      "gold_ids": [
+        "46918"
+      ],
+      "selected_ids": [
+        "179363",
+        "125833",
+        "283113",
+        "19895",
+        "161167"
+      ],
+      "missed_gold_candidate_ranks": {
+        "46918": 7
+      }
+    },
+    {
+      "query_id": "4062",
+      "question": "Nhà đầu tư nước ngoài phải làm gì để được góp vốn vào doanh nghiệp Việt Nam theo đúng quy định của Luật đầu tư?",
+      "gold_ids": [
+        "2113",
+        "153353"
+      ],
+      "selected_ids": [
+        "21398",
+        "158293",
+        "2113",
+        "95942",
+        "50279"
+      ],
+      "missed_gold_candidate_ranks": {
+        "153353": 7
+      }
+    },
+    {
+      "query_id": "94212",
+      "question": "Ai có quyền bổ nhiệm Kiểm soát viên Tổng công ty Lương thực miền Nam?",
+      "gold_ids": [
+        "228889"
+      ],
+      "selected_ids": [
+        "21398",
+        "44082",
+        "90961",
+        "240460",
+        "127057"
+      ],
+      "missed_gold_candidate_ranks": {
+        "228889": 7
+      }
+    },
+    {
+      "query_id": "31410",
+      "question": "Chính sách khoanh nuôi xúc tiến tái sinh rừng theo Chương trình mục tiêu quốc gia phát triển kinh tế - xã hội vùng đồng bào dân tộc thiểu số và miền núi giai đoạn 2021-2025?",
+      "gold_ids": [
+        "103777",
+        "292875",
+        "232217",
+        "10053"
+      ],
+      "selected_ids": [
+        "292875",
+        "172183",
+        "82252",
+        "14582",
+        "280430"
+      ],
+      "missed_gold_candidate_ranks": {
+        "103777": 10,
+        "232217": 78,
+        "10053": 8
+      }
+    },
+    {
+      "query_id": "27674",
+      "question": "Chi phí thẩm tra và thẩm định các dự án xây dựng nhà máy điện hạt nhân được quy định ra sao?",
+      "gold_ids": [
+        "290988"
+      ],
+      "selected_ids": [
+        "175576",
+        "276051",
+        "190300",
+        "234868",
+        "56366"
+      ],
+      "missed_gold_candidate_ranks": {
+        "290988": 8
+      }
+    },
+    {
+      "query_id": "47696",
+      "question": "Người dân tộc thiểu số không phải dân tộc thiểu số rất ít người đang học Đại học Lao động Xã hội thì có được miễn học phí không?",
+      "gold_ids": [
+        "179734"
+      ],
+      "selected_ids": [
+        "219332",
+        "34869",
+        "126719",
+        "294481",
+        "16938"
+      ],
+      "missed_gold_candidate_ranks": {
+        "179734": 8
+      }
+    },
+    {
+      "query_id": "163212",
+      "question": "Thủ tục tiến hành đình công hợp pháp được quy định thế nào?",
+      "gold_ids": [
+        "129823"
+      ],
+      "selected_ids": [
+        "46918",
+        "160120",
+        "166937",
+        "220347",
+        "12955"
+      ],
+      "missed_gold_candidate_ranks": {
+        "129823": 8
+      }
+    },
+    {
+      "query_id": "122088",
+      "question": "Những biểu hiện nào được xem là suy thoái đạo đức, lối sống của cán bộ, đảng viên?",
+      "gold_ids": [
+        "60783"
+      ],
+      "selected_ids": [
+        "6525",
+        "98575",
+        "258682",
+        "258706",
+        "149979"
+      ],
+      "missed_gold_candidate_ranks": {
+        "60783": 9
+      }
+    },
+    {
+      "query_id": "161354",
+      "question": "Giấy chứng nhận đăng ký đầu tư ra nước ngoài được điều chỉnh trong những trường hợp nào?",
+      "gold_ids": [
+        "2113"
+      ],
+      "selected_ids": [
+        "269338",
+        "200355",
+        "142940",
+        "56812",
+        "84570"
+      ],
+      "missed_gold_candidate_ranks": {
+        "2113": 9
+      }
+    },
+    {
+      "query_id": "67050",
+      "question": "Người tiếp công dân trong ngành Kiểm sát nhân dân phải làm các thủ tục tiếp nhận khiếu nại và các chứng cứ kèm theo do người khiếu nại cung cấp khi nào?",
+      "gold_ids": [
+        "102100",
+        "104374"
+      ],
+      "selected_ids": [
+        "102100",
+        "268596",
+        "251260",
+        "125833",
+        "67876"
+      ],
+      "missed_gold_candidate_ranks": {
+        "104374": 9
+      }
+    },
+    {
+      "query_id": "50552",
+      "question": "Khai thác đất để san lấp trên chính diện tích đó có được miễn thuế tài nguyên và phí bảo vệ môi trường không?",
+      "gold_ids": [
+        "255180",
+        "281560"
+      ],
+      "selected_ids": [
+        "36677",
+        "278593",
+        "305455",
+        "117172",
+        "255180"
+      ],
+      "missed_gold_candidate_ranks": {
+        "281560": 9
+      }
+    },
+    {
+      "query_id": "129132",
+      "question": "Mức lương cụ thể của công chức bổ nhiệm vào ngạch kiểm ngư viên được tính thế nào?",
+      "gold_ids": [
+        "41395",
+        "43443"
+      ],
+      "selected_ids": [
+        "14681",
+        "198927",
+        "222043",
+        "192042",
+        "200822"
+      ],
+      "missed_gold_candidate_ranks": {
+        "41395": null,
+        "43443": 10
+      }
+    },
+    {
+      "query_id": "95442",
+      "question": "Người bị nhiễm HIV, AIDS có được tham gia nghĩa vụ quân sự hay không?",
+      "gold_ids": [
+        "297709"
+      ],
+      "selected_ids": [
+        "54050",
+        "169259",
+        "31031",
+        "113492",
+        "189082"
+      ],
+      "missed_gold_candidate_ranks": {
+        "297709": 10
+      }
+    },
+    {
+      "query_id": "96834",
+      "question": "Tiêu chuẩn cụ thể đối với giảng viên trong các cơ sở đào tạo, bồi dưỡng cán bộ, công chức, viên chức được quy định như thế nào?",
+      "gold_ids": [
+        "222645"
+      ],
+      "selected_ids": [
+        "85808",
+        "62676",
+        "30029",
+        "210717",
+        "278944"
+      ],
+      "missed_gold_candidate_ranks": {
+        "222645": 10
+      }
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+queries: 7000
+missing predictions: 0
+hit@k: 0.3584
+macro recall: 0.3468
+macro precision: 0.0733
