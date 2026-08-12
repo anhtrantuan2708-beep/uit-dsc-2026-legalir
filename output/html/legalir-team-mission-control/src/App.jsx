@@ -65,61 +65,61 @@ const DEFAULT_TEAM = [
   {
     id: "shared",
     initials: "CT",
-    role: "Code & submission chung",
-    owner: "Cả team · luân phiên",
-    status: "Việc chung",
-    summary: "Cùng giữ pipeline chuẩn, hợp nhất kết quả và kiểm tra submission trước khi nộp.",
-    done: "V1–V6, validator, ZIP và experiment log",
-    next: "Nộp V6, ghi Public score và freeze candidate tốt nhất",
-    deliverable: "V6 receipt + submission registry",
+    role: "1. Ghi lại kết quả chung",
+    owner: "01 bạn luân phiên mỗi tuần",
+    status: "Bắt đầu trước",
+    summary: "Không phải leader. Bạn chỉ giúp cả team biết: đã thử gì, điểm bao nhiêu và có nên thử tiếp không.",
+    done: "Đọc tab “Thử nghiệm” để biết các hướng đã làm",
+    next: "Tạo 1 GitHub Issue hoặc Google Sheet với 4 cột: giả thuyết · Recall · Precision · kết luận",
+    deliverable: "1 bảng kết quả chung, cập nhật sau mỗi lần thử",
     accent: "blue",
   },
   {
     id: "legal",
     initials: "LB",
-    role: "Legal / BM25",
-    owner: "01 người mạnh xử lý văn bản / rule-based",
+    role: "2. Tìm mẫu trong câu hỏi pháp luật",
+    owner: "Bạn thích đọc, phân loại và ghi chú",
     status: "Ưu tiên P0",
-    summary: "Cải thiện lexical retrieval theo cấu trúc văn bản pháp luật.",
-    done: "BM25 normalize, title, stopwords, query profiles",
-    next: "Tách Điều/Khoản/Điểm và tạo legal synonym dictionary",
-    deliverable: "legal_bm25_top100.json + ablation report",
+    summary: "Bạn chưa cần làm model. Mục tiêu là chỉ ra từ nào trong câu hỏi giúp tìm đúng văn bản: số điều, khoản, điểm, số hiệu luật.",
+    done: "Đọc 20–30 câu hỏi và văn bản liên quan khi team được cấp data",
+    next: "Ghi 20 ví dụ: câu hỏi có từ khoá gì, văn bản cần trả về có đặc điểm gì",
+    deliverable: "1 file ghi chú 20 ví dụ + đề xuất 3 quy tắc tìm kiếm",
     accent: "sand",
   },
   {
     id: "dense",
     initials: "DR",
-    role: "Dense Retrieval",
-    owner: "01 người có nền tảng embeddings / model",
+    role: "3. Chạy và hiểu baseline",
+    owner: "Bạn muốn code nhưng chưa cần biết AI sâu",
     status: "Ưu tiên P1",
-    summary: "Tìm văn bản theo ngữ nghĩa và tăng candidate Recall.",
-    done: "E5 embeddings, dense retrieval, question-KNN",
-    next: "Hard-negative mining và benchmark model embedding mới",
-    deliverable: "dense_v2_top100.json + model card",
+    summary: "Bạn chạy lại pipeline hiện có trước, để biết đầu vào là gì, output là gì và Recall/Precision đang được tính thế nào.",
+    done: "Đọc README và file hướng dẫn chạy baseline trong repo",
+    next: "Khi có dataset: chạy baseline 1 lần, lưu thời gian chạy và 2 metric nhận được",
+    deliverable: "1 ảnh/log chạy thành công + 3 dòng giải thích input → output → metric",
     accent: "violet",
   },
   {
     id: "reranking",
     initials: "RR",
-    role: "Reranking",
-    owner: "01 người thích thử nghiệm ranking / model",
+    role: "4. Cải thiện lựa chọn top 5",
+    owner: "Bạn thích thử nghiệm và so sánh số liệu",
     status: "Ưu tiên P0",
-    summary: "Chọn đúng 5 ID cuối từ candidate top 100.",
-    done: "Generic CE, safe rerank và deep top-50 rerank",
-    next: "Feature ablation và legal-aware reranker",
-    deliverable: "reranker_v2_k5.json + error slices",
+    summary: "Model hiện thường tìm được tài liệu đúng trong top 100, nhưng chưa đẩy đúng nó vào top 5. Bạn tập trung đúng chỗ này.",
+    done: "Đọc tab “Tiến độ”: candidate Recall@100 đã 0.9422",
+    next: "Chọn 1 thay đổi nhỏ cho thứ tự top 5, chạy trên dev split và so trước/sau",
+    deliverable: "1 bảng before/after: thay đổi gì · Recall · Precision · runtime",
     accent: "mint",
   },
   {
     id: "evaluation",
     initials: "EV",
-    role: "Evaluation / MLOps",
-    owner: "01 người cẩn thận về data & metric",
+    role: "5. Kiểm tra kết quả có đáng tin không",
+    owner: "Bạn cẩn thận với data và số liệu",
     status: "Ưu tiên P0",
-    summary: "Bảo vệ validation, đo metric và theo dõi lỗi.",
-    done: "Dev split, evaluator, candidate ceiling analysis",
-    next: "Cross-validation và dashboard error taxonomy",
-    deliverable: "cv_report.md + error_analysis.json",
+    summary: "Bạn không cần làm model mới. Bạn kiểm tra xem thay đổi của người khác có thật sự tốt hơn hay chỉ tình cờ tốt trên một nhóm câu hỏi.",
+    done: "Đọc cách tính Recall và Precision trong docs/01_glossary_for_newbie.md",
+    next: "Lập 1 checklist: cùng dev split? đúng 5 ID/câu? metric trước/sau? runtime?",
+    deliverable: "1 checklist review để team dùng trước khi nhận một kết quả",
     accent: "amber",
   },
 ];
@@ -315,7 +315,7 @@ function TeamPage() {
   return (
     <div className="page">
       <header className="page-header">
-        <div><span className="eyebrow">Suggested split for 5 people</span><h1>Gợi ý phân công cho team</h1><p>Đây là đề xuất để cả team thảo luận và tự nhận việc; report này không theo dõi hay gán người chính thức.</p></div>
+        <div><span className="eyebrow">Start here · 5 người</span><h1>Mỗi người nên bắt đầu từ đâu?</h1><p>Chọn một thẻ bên dưới theo sở thích. Không ai cần biết hết AI; mỗi thẻ đã ghi rõ việc đầu tiên và thứ cần gửi lại nhóm.</p></div>
       </header>
       <div className="team-grid">
         {DEFAULT_TEAM.map((member) => (
@@ -327,16 +327,16 @@ function TeamPage() {
             </div>
             <p className="team-card__summary">{member.summary}</p>
             <dl>
-              <div><dt>Nền tảng đã có</dt><dd>{member.done}</dd></div>
-              <div><dt>Việc đề xuất</dt><dd>{member.next}</dd></div>
-              <div><dt>Bàn giao tối thiểu</dt><dd><code>{member.deliverable}</code></dd></div>
+              <div><dt>Xem trước</dt><dd>{member.done}</dd></div>
+              <div><dt>Bước đầu tiên</dt><dd>{member.next}</dd></div>
+              <div><dt>Gửi lại nhóm</dt><dd>{member.deliverable}</dd></div>
             </dl>
           </article>
         ))}
       </div>
       <div className="team-rule">
         <ClipboardText weight="duotone" />
-        <div><strong>Quy tắc phối hợp đề xuất</strong><p>Người nhận việc bàn giao command chạy, prediction dev, metric before/after và runtime. Chỉ đưa sang Public khi tăng ít nhất +0.01 Recall local.</p></div>
+        <div><strong>Cách nhận việc trong 5 phút</strong><p>Mỗi người nhắn vào group: “Mình nhận thẻ số X”. Làm đúng bước đầu tiên, rồi gửi output đã ghi trên thẻ. Chưa cần tự tạo model hay tự nộp Codabench.</p></div>
       </div>
     </div>
   );
@@ -375,24 +375,24 @@ function FilesPage() {
   return (
     <div className="page">
       <header className="page-header page-header--simple">
-        <div><span className="eyebrow">How to share this report</span><h1>Tài liệu chung</h1><p>Đây là report để cả team đọc. Nó không chứa source code, dataset hay command chạy trên máy của bạn.</p></div>
+        <div><span className="eyebrow">Start here · không cần code ngay</span><h1>Hôm nay cả team cần làm gì?</h1><p>Chỉ làm 3 việc dưới đây. Chưa ai cần cài AI, chạy command hay tự tìm dataset.</p></div>
       </header>
       <div className="file-grid">
         <section className="file-group">
-          <div className="file-group__title"><Files weight="duotone" /><h2>1. Gửi cho cả team ngay bây giờ</h2></div>
-          <div className="file-row"><div><strong>File HTML report</strong><span>Gửi file này qua Zalo, Drive hoặc Discord. Mọi người chỉ cần mở để đọc tiến độ và hướng chia việc.</span></div></div>
-          <div className="file-row"><div><strong>Không cần gửi command</strong><span>Command chỉ chạy được khi người đó đã có source code, dataset và môi trường cài đặt giống nhau.</span></div></div>
+          <div className="file-group__title"><Files weight="duotone" /><h2>1. Đọc report và chọn một thẻ</h2></div>
+          <div className="file-row"><div><strong>Mỗi người mở file HTML này</strong><span>Đọc 2 tab: “Tổng quan” để biết nhóm đang ở đâu, và “Mỗi người nên bắt đầu từ đâu?” để chọn một thẻ số 1–5.</span></div></div>
+          <div className="file-row"><div><strong>Nhắn một câu vào group</strong><span>Ví dụ: “Mình nhận thẻ 2 — tìm mẫu trong câu hỏi pháp luật.” Vậy là cả team biết ai đang xem hướng nào.</span></div></div>
         </section>
         <section className="file-group">
-          <div className="file-group__title"><FolderOpen weight="duotone" /><h2>2. Khi team bắt đầu code chung</h2></div>
-          <div className="file-row"><div><strong>Tạo một GitHub repository riêng</strong><span>Đặt source code, README và cấu trúc thư mục vào một repo private; mỗi người clone repo về máy mình.</span></div></div>
-          <div className="file-row"><div><strong>Chia sẻ dataset theo thể lệ</strong><span>Chỉ người được phép mới nhận dữ liệu. Không nhét dataset vào report HTML hoặc public GitHub.</span></div></div>
+          <div className="file-group__title"><FolderOpen weight="duotone" /><h2>2. Khi đã chọn việc code</h2></div>
+          <div className="file-row"><div><strong>Nhận lời mời vào GitHub repo private</strong><span>Repo đã có tại github.com/anhtrantuan2708-beep/uit-dsc-2026-legalir. Sau khi được mời, bạn chỉ cần Accept invitation.</span></div></div>
+          <div className="file-row"><div><strong>Đọc 2 file trước khi sửa code</strong><span>README nói bức tranh tổng quát. CONTRIBUTING nói commit gì và báo kết quả ra sao. Chỉ sau đó mới tạo branch riêng.</span></div></div>
         </section>
       </div>
       <section className="submission-checklist">
-        <div><CheckCircle weight="fill" /><strong>Phân biệt 3 thứ</strong></div>
-        <ul><li><strong>HTML report:</strong> gửi cho tất cả để đọc.</li><li><strong>Source code:</strong> chia sẻ sau qua một GitHub repo private.</li><li><strong>Submission ZIP:</strong> chỉ người nộp trên Codabench cần dùng.</li></ul>
-        <code>Không cần gửi source hay ZIP chỉ để mọi người xem report.</code>
+        <div><CheckCircle weight="fill" /><strong>3. Data và nộp bài: để sau</strong></div>
+        <ul><li><strong>Dataset:</strong> chỉ chia sẻ khi mọi người có quyền theo thể lệ.</li><li><strong>Source code:</strong> ở GitHub private, không gửi lẫn qua Zalo.</li><li><strong>Submission ZIP:</strong> chỉ tạo khi team đã chốt một kết quả.</li></ul>
+        <code>Hôm nay chỉ cần: đọc report → chọn thẻ → nhận GitHub invite.</code>
       </section>
     </div>
   );
