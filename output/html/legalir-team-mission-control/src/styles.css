@@ -205,16 +205,11 @@ code { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monos
 .sprint-goal span { color: #9fb0c3; font-size: 10px; text-transform: uppercase; letter-spacing: .08em; }
 .sprint-goal strong { font-size: 22px; }
 .sprint-goal p { margin: 4px 0 0; color: #a8b6c5; font-size: 10px; }
-.sprint-progress > span { display: block; margin-bottom: 9px; color: #b8c5d2; font-size: 11px; }
-.sprint-progress > div { height: 7px; overflow: hidden; border-radius: 99px; background: rgba(255,255,255,.12); }
-.sprint-progress i { display: block; height: 100%; background: #68a4ff; }
+.sprint-goal__note { align-self: center; }
+.sprint-goal__note > span { display: block; margin-bottom: 7px; color: #b8c5d2; font-size: 11px; }
+.sprint-goal__note p { margin: 0; max-width: 280px; color: #a8b6c5; font-size: 11px; line-height: 1.5; }
 .task-list { margin-top: 18px; border-top: 1px solid var(--line); }
-.task-row { width: 100%; min-height: 74px; display: grid; grid-template-columns: 30px 44px 1fr 140px; align-items: center; gap: 13px; padding: 10px 8px; border: 0; border-bottom: 1px solid var(--line-soft); background: white; text-align: left; cursor: pointer; }
-.task-row:hover { background: #fafbfd; }
-.task-row.is-done { opacity: .62; }
-.task-row.is-done .task-copy strong { text-decoration: line-through; }
-.task-check { width: 25px; height: 25px; display: grid; place-items: center; color: var(--blue); }
-.task-check svg { width: 20px; height: 20px; }
+.task-row { width: 100%; min-height: 74px; display: grid; grid-template-columns: 44px 1fr 140px; align-items: center; gap: 13px; padding: 10px 8px; border-bottom: 1px solid var(--line-soft); background: white; }
 .priority { width: max-content; padding: 4px 7px; border-radius: 4px; font-size: 9px; font-weight: 800; }
 .priority--p0 { color: #9d353a; background: var(--red-soft); }
 .priority--p1 { color: #885a0a; background: var(--amber-soft); }

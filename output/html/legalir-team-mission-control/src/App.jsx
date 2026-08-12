@@ -3,9 +3,7 @@ import {
   ArrowRight,
   ArrowUpRight,
   ChartLineUp,
-  Check,
   CheckCircle,
-  Circle,
   ClipboardText,
   Files,
   Flag,
@@ -142,15 +140,6 @@ const DECISION_LABELS = {
   reject: "Đã loại",
   replaced: "Đã thay thế",
 };
-
-function loadStored(key, fallback) {
-  try {
-    const value = localStorage.getItem(key);
-    return value ? JSON.parse(value) : fallback;
-  } catch {
-    return fallback;
-  }
-}
 
 function Metric({ label, value, helper, tone = "blue" }) {
   return (
@@ -354,32 +343,22 @@ function TeamPage() {
 }
 
 function SprintPage() {
-  const [tasks, setTasks] = useState(() => loadStored("legalir-sprint", SPRINT_TASKS));
-  const completed = tasks.filter((task) => task.done).length;
-
-  function toggle(id) {
-    const next = tasks.map((task) => task.id === id ? { ...task, done: !task.done } : task);
-    setTasks(next);
-    localStorage.setItem("legalir-sprint", JSON.stringify(next));
-  }
-
   return (
     <div className="page">
       <header className="page-header page-header--simple">
-        <div><span className="eyebrow">Sprint 13–20/08/2026</span><h1>Việc cần làm tiếp theo</h1><p>Mục tiêu: tăng khả năng chọn đúng top 5 và vượt local Recall 0.84 một cách ổn định.</p></div>
+        <div><span className="eyebrow">Roadmap 13–20/08/2026</span><h1>Hướng làm tiếp theo</h1><p>Đề xuất các hướng ưu tiên để tăng khả năng chọn đúng top 5 và vượt local Recall 0.84 ổn định.</p></div>
       </header>
       <section className="sprint-goal">
         <div><Target weight="duotone" /><span>North-star gate</span><strong>Recall local ≥ 0.84</strong><p>Không giảm Precision và cải thiện ổn định qua cross-validation.</p></div>
-        <div className="sprint-progress"><span>{completed}/{tasks.length} tasks hoàn thành</span><div><i style={{ width: `${(completed / tasks.length) * 100}%` }} /></div></div>
+        <div className="sprint-goal__note"><span>Roadmap chỉ để đọc</span><p>Team tự trao đổi để nhận việc; report không theo dõi tiến độ cá nhân.</p></div>
       </section>
       <div className="task-list">
-        {tasks.map((task) => (
-          <button className={`task-row ${task.done ? "is-done" : ""}`} key={task.id} onClick={() => toggle(task.id)}>
-            <span className="task-check">{task.done ? <Check weight="bold" /> : <Circle />}</span>
+        {SPRINT_TASKS.map((task) => (
+          <article className="task-row" key={task.id}>
             <span className={`priority priority--${task.priority.toLowerCase()}`}>{task.priority}</span>
-            <span className="task-copy"><strong>{task.title}</strong><small>Gate: {task.gate}</small></span>
-            <span className="task-owner">{task.owner}</span>
-          </button>
+            <span className="task-copy"><strong>{task.title}</strong><small>Điều kiện đánh giá: {task.gate}</small></span>
+            <span className="task-owner">Mảng: {task.owner}</span>
+          </article>
         ))}
       </div>
       <section className="do-not-list">
