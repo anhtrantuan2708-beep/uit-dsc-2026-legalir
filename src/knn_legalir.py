@@ -25,6 +25,8 @@ def main() -> None:
     parser.add_argument("--model-cache", type=Path, default=Path("models/e5-small"))
     parser.add_argument("--embeddings", type=Path, default=Path("data/derived/e5_train_question_embeddings.npy"))
     parser.add_argument("--embedding-ids", type=Path, default=Path("data/derived/e5_train_question_ids.json"))
+    parser.add_argument("--query-embeddings", type=Path)
+    parser.add_argument("--query-embedding-ids", type=Path)
     parser.add_argument("--neighbors", type=int, default=100)
     parser.add_argument("--top-k", type=int, default=100)
     parser.add_argument("--batch-size", type=int, default=64)
@@ -34,6 +36,8 @@ def main() -> None:
         default="rank_vote",
         help="How labelled neighbours vote for a document.",
     )
+    parser.add_argument("--similarity-power", type=float, default=1.0)
+    parser.add_argument("--rank-power", type=float, default=1.0)
     parser.add_argument(
         "--exclude-self",
         action="store_true",
@@ -46,12 +50,13 @@ def main() -> None:
 
     queries, train = load(args.queries), load(args.labelled_train)
     train_ids = list(train)
-    model = SentenceTransformer(args.model, cache_folder=str(args.model_cache))
+    model = None
 
     if args.embeddings.exists() and args.embedding_ids.exists() and load(args.embedding_ids) == train_ids:
         print("reusing local labelled-question embeddings")
         train_embeddings = np.load(args.embeddings)
     else:
+        model = SentenceTransformer(args.model, cache_folder=str(args.model_cache))
         print(f"encoding {len(train_ids)} labelled training questions locally")
         train_embeddings = model.encode(
             [f"query: {train[query_id]['question']}" for query_id in train_ids],
@@ -65,13 +70,29 @@ def main() -> None:
         args.embedding_ids.write_text(json.dumps(train_ids), encoding="utf-8")
 
     query_ids = list(queries)
-    query_embeddings = model.encode(
-        [f"query: {queries[query_id]['question']}" for query_id in query_ids],
-        batch_size=args.batch_size,
-        normalize_embeddings=True,
-        show_progress_bar=True,
-        convert_to_numpy=True,
-    )
+    if (
+        args.query_embeddings
+        and args.query_embedding_ids
+        and args.query_embeddings.exists()
+        and args.query_embedding_ids.exists()
+        and load(args.query_embedding_ids) == query_ids
+    ):
+        print("reusing local query embeddings")
+        query_embeddings = np.load(args.query_embeddings)
+    else:
+        if model is None:
+            model = SentenceTransformer(args.model, cache_folder=str(args.model_cache))
+        query_embeddings = model.encode(
+            [f"query: {queries[query_id]['question']}" for query_id in query_ids],
+            batch_size=args.batch_size,
+            normalize_embeddings=True,
+            show_progress_bar=True,
+            convert_to_numpy=True,
+        )
+        if args.query_embeddings and args.query_embedding_ids:
+            args.query_embeddings.parent.mkdir(parents=True, exist_ok=True)
+            np.save(args.query_embeddings, query_embeddings)
+            args.query_embedding_ids.write_text(json.dumps(query_ids), encoding="utf-8")
     scores = query_embeddings @ train_embeddings.T
     result = {}
     neighbor_count = min(args.neighbors + (1 if args.exclude_self else 0), len(train_ids))
@@ -83,7 +104,8 @@ def main() -> None:
         document_scores = defaultdict(float)
         for rank, train_index in enumerate(indices, start=1):
             # Similarity carries semantic confidence; rank provides stability.
-            vote = float(scores[index][train_index]) / rank
+            similarity = max(float(scores[index][train_index]), 0.0)
+            vote = similarity**args.similarity_power / rank**args.rank_power
             for document_id in train[train_ids[int(train_index)]].get("answer", []):
                 document_id = str(document_id)
                 if args.aggregation == "max_similarity":

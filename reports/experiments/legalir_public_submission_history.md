@@ -83,3 +83,13 @@ Public score exists yet. See `legalir_listwise_smoke300.md`.
 
 Decision: stop before full-dev inference. More listwise training queries did
 not pass the local improvement gate; V7-300 remains the candidate.
+
+## Candidate V8–V10: supervised voting and BGE reranking (2026-08-13)
+
+- V8 adds character-ngram question retrieval: Recall 0.8367, Precision 0.1777.
+- V9 tunes dense-question voting: Recall 0.8504, Precision 0.1815.
+- V10 reranks V9's top ten with `BAAI/bge-reranker-v2-m3` and retains three
+  trusted base IDs: Recall **0.8562**, Precision **0.1821**, Hit@5 **0.8814**.
+
+Decision: V10 is the current local candidate. No V8/V9/V10 Public score exists
+yet; reproduce the pipeline on Public data and validate the ZIP before upload.
