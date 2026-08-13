@@ -37,3 +37,9 @@ Date: 2026-08-13
 Accept V10 as the current local candidate. Public inference still needs the
 same retrieval branches, V9 fusion and BGE top-10 reranking before a validated
 submission archive can be created.
+
+The reproducible Public pipeline is `scripts/run_legalir_public_v10.sh`.
+Character retrieval, listwise reranking and V9 fusion were completed for all
+1,000 Public questions. BGE Public inference was interrupted at 3% because the
+Mac reached 2% battery and thermal throttling increased the ETA past one hour.
+The completed V8/V9 intermediate files remain cached in `tmp/`.
