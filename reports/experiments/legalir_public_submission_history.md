@@ -62,3 +62,16 @@ contains only `submission.json`. SHA-256:
 
 Decision: reject before full-dev inference. More data did not repair the
 pointwise hard-negative objective; see `legalir_hardneg_v2_800.md`.
+
+## Candidate V7: listwise LambdaLoss reranker (2026-08-13)
+
+- 300 train queries with all positive documents and four mined hard negatives.
+- Unlike the rejected pointwise models, this model ranks each query's candidate
+  group jointly and optimizes LambdaLoss at top 5.
+- Full dev with keep-base=4: Recall **0.8339**, Precision **0.1769**, Hit@5
+  **0.8594**.
+- V6 full dev: Recall 0.8264, Precision 0.1753, Hit@5 0.8524.
+
+Decision: accept as a local V7 candidate (+0.0075 Recall, +0.0016 Precision).
+Run a stability check before generating and submitting a Public archive; no V7
+Public score exists yet. See `legalir_listwise_smoke300.md`.
