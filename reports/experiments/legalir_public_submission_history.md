@@ -4,7 +4,8 @@
 |---|---:|---:|---:|---|
 | V1: BM25 + Dense RRF | 886134 | 0.5843 | 0.1248 | Baseline |
 | V3: supervised 3-way hybrid | 886603 | 0.7502 | 0.1610 | Keep |
-| V5: V4 + safe rerank fifth slot | 886623 | **0.8020** | **0.1724** | **Current best** |
+| V5: V4 + safe rerank fifth slot | 886623 | 0.8020 | 0.1724 | Superseded |
+| V9: tuned dense-question voting | — | **0.84625** | **0.1812** | **Current Public best** |
 
 V5 retains the first four IDs from the V4 multi-retriever result, and uses the
 cross-encoder reranker only to fill the fifth slot.  Its local dev result was
@@ -91,5 +92,12 @@ not pass the local improvement gate; V7-300 remains the candidate.
 - V10 reranks V9's top ten with `BAAI/bge-reranker-v2-m3` and retains three
   trusted base IDs: Recall **0.8562**, Precision **0.1821**, Hit@5 **0.8814**.
 
-Decision: V10 is the current local candidate. No V8/V9/V10 Public score exists
-yet; reproduce the pipeline on Public data and validate the ZIP before upload.
+V9 Public confirmed Recall **0.84625** and Precision **0.1812**, closely matching
+its local Recall 0.8504 and Precision 0.1815. This validates the current local
+split as a useful experiment gate.
+
+V10 Public inference completed in ten resumable 100-query shards. The validated
+archive is `submissions/legalir_public_v10.zip`; it contains exactly one
+`submission.json`, 1,000 queries, five unique corpus IDs per query, and has
+SHA-256 `3576bffd93a6eda9c8e437ff5a1dcc5253fb8d69c76b0f4b84591a550537f6aa`.
+V10 remains a candidate until its Codabench score is known.

@@ -31,17 +31,25 @@ Date: 2026-08-13
   not improve final top 5 over V8.
 - BGE over the original top 20 was weaker alone; reranking V9's top ten was
   more efficient and produced the best full-dev result.
+- Document-association fusion improved V9 only from 0.8504 to 0.8534 Recall.
+- A character-TF-IDF classifier that applied association expansion only to
+  likely multi-document queries reached 0.8524 Recall. Both remain below the
+  +0.01 experiment gate and were not scaled to Public.
+
+V9 error slicing shows the main bottleneck is ranking, especially for queries
+with multiple gold documents: top-5 Recall is 0.6087 for that slice, while the
+same candidate top 50 contains 0.8404. Overall candidate Recall@50 is 0.9381,
+compared with final top-5 Recall 0.8504.
 
 ## Decision
 
-Accept V10 as the current local candidate. Public inference still needs the
-same retrieval branches, V9 fusion and BGE top-10 reranking before a validated
-submission archive can be created.
+V9 Public scored Recall **0.84625** and Precision **0.1812**, close to its local
+Recall 0.8504 and Precision 0.1815. Accept V9 as the current Public baseline.
 
-The reproducible Public pipeline is `scripts/run_legalir_public_v10.sh`.
-Character retrieval, listwise reranking and V9 fusion were completed for all
-1,000 Public questions. BGE Public inference was interrupted at 3% because the
-Mac reached 2% battery and thermal throttling increased the ETA past one hour.
-The completed V8/V9 intermediate files remain cached in `tmp/`.
-Public BGE inference is split into ten resumable 100-query shards, so a later
-interruption reuses completed shards rather than restarting all 1,000 queries.
+V10 Public inference has completed and produced the validated candidate
+`submissions/legalir_public_v10.zip`. Its Codabench score is still unknown.
+
+The full reproducible Public pipeline is `scripts/run_legalir_public_v10.sh`.
+The BGE-only resumable stage is `scripts/resume_legalir_public_v10_bge.sh`.
+Public BGE inference is split into ten 100-query shards so interruptions reuse
+completed work instead of restarting all 1,000 queries.
