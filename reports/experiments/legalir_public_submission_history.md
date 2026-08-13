@@ -75,3 +75,11 @@ pointwise hard-negative objective; see `legalir_hardneg_v2_800.md`.
 Decision: accept as a local V7 candidate (+0.0075 Recall, +0.0016 Precision).
 Run a stability check before generating and submitting a Public archive; no V7
 Public score exists yet. See `legalir_listwise_smoke300.md`.
+
+## Rejected scale check: listwise 800 queries (2026-08-13)
+
+- Fixed smoke100: Recall 0.8558, Precision 0.1820, Hit@5 0.9000.
+- V7-300 on the same split has identical scores.
+
+Decision: stop before full-dev inference. More listwise training queries did
+not pass the local improvement gate; V7-300 remains the candidate.
