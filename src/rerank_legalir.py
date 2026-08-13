@@ -72,6 +72,12 @@ def main() -> None:
         type=int,
         help="Temporary smoke-test limit. Omit for a full validation run.",
     )
+    parser.add_argument(
+        "--query-start",
+        type=int,
+        default=0,
+        help="Zero-based query offset, useful for resumable inference shards.",
+    )
     args = parser.parse_args()
 
     try:
@@ -81,7 +87,7 @@ def main() -> None:
 
     queries = load_json(args.queries)
     candidate_rows = load_json(args.candidates)
-    query_items = list(queries.items())
+    query_items = list(queries.items())[args.query_start :]
     if args.max_queries is not None:
         query_items = query_items[: args.max_queries]
     needed_ids = {

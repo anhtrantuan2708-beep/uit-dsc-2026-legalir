@@ -41,11 +41,23 @@ cd "$ROOT"
   tmp/public_v9_top50.json \
   --first-weight 1 --second-weight 0.5 --rrf-k 1 --top-k 50
 
-.venv/bin/python src/rerank_legalir.py \
-  "$PUBLIC" "$CORPUS" tmp/public_v9_top50.json tmp/public_v10_bge_top10.json \
-  --model BAAI/bge-reranker-v2-m3 \
-  --model-cache models/bge-reranker-v2-m3 \
-  --candidate-k 10 --top-k 10 --evidence-chunks 2 --batch-size 8
+mkdir -p tmp/public_v10_bge_shards
+for start in $(seq 0 100 900); do
+  shard="tmp/public_v10_bge_shards/bge_${start}.json"
+  if [[ -s "$shard" ]]; then
+    echo "Reusing completed BGE shard: $shard"
+    continue
+  fi
+  .venv/bin/python src/rerank_legalir.py \
+    "$PUBLIC" "$CORPUS" tmp/public_v9_top50.json "$shard" \
+    --model BAAI/bge-reranker-v2-m3 \
+    --model-cache models/bge-reranker-v2-m3 \
+    --candidate-k 10 --top-k 10 --evidence-chunks 2 --batch-size 8 \
+    --query-start "$start" --max-queries 100
+done
+
+.venv/bin/python src/merge_legalir_rankings.py \
+  tmp/public_v10_bge_top10.json tmp/public_v10_bge_shards/bge_*.json
 
 .venv/bin/python src/blend_legalir_rankings.py \
   submissions/legalir_public_v5_safe_rerank_k5.json \

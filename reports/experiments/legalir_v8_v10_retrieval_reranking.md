@@ -43,3 +43,5 @@ Character retrieval, listwise reranking and V9 fusion were completed for all
 1,000 Public questions. BGE Public inference was interrupted at 3% because the
 Mac reached 2% battery and thermal throttling increased the ETA past one hour.
 The completed V8/V9 intermediate files remain cached in `tmp/`.
+Public BGE inference is split into ten resumable 100-query shards, so a later
+interruption reuses completed shards rather than restarting all 1,000 queries.
