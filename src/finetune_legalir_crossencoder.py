@@ -44,6 +44,11 @@ def main() -> None:
     parser.add_argument("--max-queries", type=int, default=200)
     parser.add_argument("--candidate-k", type=int, default=50)
     parser.add_argument("--negatives", type=int, default=2)
+    parser.add_argument(
+        "--all-positives",
+        action="store_true",
+        help="Train on every gold document for a query instead of only the first one.",
+    )
     parser.add_argument("--batch-size", type=int, default=8)
     parser.add_argument("--epochs", type=int, default=1)
     parser.add_argument("--learning-rate", type=float, default=1e-5)
@@ -76,20 +81,25 @@ def main() -> None:
         ][: args.negatives]
         if not gold or len(negatives) < args.negatives:
             continue
-        positive = gold[0]
-        selections.append((query_id, positive, negatives))
-        needed.add(positive)
+        positives = gold if args.all_positives else gold[:1]
+        selections.append((query_id, positives, negatives))
+        needed.update(positives)
         needed.update(negatives)
 
     corpus = load_needed_corpus(args.corpus, needed)
     examples = []
-    for query_id, positive, negatives in selections:
+    for query_id, positives, negatives in selections:
         question = str(train[query_id]["question"])
-        if positive not in corpus:
+        available_positives = [positive for positive in positives if positive in corpus]
+        if not available_positives:
             continue
-        examples.append(
-            InputExample(texts=[question, best_evidence(question, corpus[positive], args.evidence_chunks)], label=1.0)
-        )
+        for positive in available_positives:
+            examples.append(
+                InputExample(
+                    texts=[question, best_evidence(question, corpus[positive], args.evidence_chunks)],
+                    label=1.0,
+                )
+            )
         for negative in negatives:
             if negative in corpus:
                 examples.append(

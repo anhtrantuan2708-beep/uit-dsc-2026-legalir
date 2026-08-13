@@ -53,3 +53,12 @@ Public artifact created: `submissions/legalir_public_v6_top50_keep3.zip`.
 Validation: 1,000 queries, exactly 5 IDs per query, no missing corpus IDs, ZIP
 contains only `submission.json`. SHA-256:
 `841e4e3c103f4ea5c445035e595d89ed30ef619e547e71883b83373ad05afe31`.
+
+## Rejected experiment: hard-negative reranker v2 (2026-08-13)
+
+- 800 train queries, all gold documents, four hard negatives, 4,087 pairs.
+- Fixed 100-query smoke: Recall 0.8058, Precision 0.1720, Hit@5 0.8500.
+- V6 on the same smoke set: Recall 0.8508, Precision 0.1800, Hit@5 0.8900.
+
+Decision: reject before full-dev inference. More data did not repair the
+pointwise hard-negative objective; see `legalir_hardneg_v2_800.md`.
