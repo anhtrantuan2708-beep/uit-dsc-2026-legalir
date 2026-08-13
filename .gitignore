@@ -19,9 +19,10 @@ tmp/
 .DS_Store
 
 # Mission Control build artifacts (the source and standalone shared report stay tracked).
-output/html/legalir-team-mission-control/node_modules/
-output/html/legalir-team-mission-control/dist/
-output/html/legalir-team-mission-control/qa-*.png
-output/html/legalir-team-mission-control/.openai/
-output/html/legalir-team-mission-control/.vercel/
-output/html/legalir-team-mission-control/legalir_team_mission_control.html
+visuals/legalir-team-mission-control/node_modules/
+visuals/legalir-team-mission-control/dist/
+visuals/legalir-team-mission-control/qa-*.png
+visuals/legalir-team-mission-control/public/qa/
+visuals/legalir-team-mission-control/.openai/
+visuals/legalir-team-mission-control/.vercel/
+visuals/legalir-team-mission-control/legalir_team_mission_control.html

@@ -6,6 +6,10 @@ Workspace nghiên cứu và chuẩn bị submission cho UIT Data Science Challen
 
 Xem [CONTRIBUTING.md](CONTRIBUTING.md) để biết cách tạo branch, commit và bàn giao thí nghiệm trong team.
 
+## Visual reports
+
+Các file HTML để đọc trực quan nằm trong thư mục [`visuals/`](visuals/). Tải file `.html` về và mở bằng trình duyệt để xem giao diện.
+
 ## Trạng thái hiện tại
 
 Đã xác minh lại competition đúng cho năm 2026:

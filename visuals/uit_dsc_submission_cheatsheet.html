@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UIT DSC - Submission Cheat Sheet</title>
+  <style>
+    :root{--ink:#172033;--muted:#667085;--blue:#3457d5;--line:#dfe5ef;--soft:#f4f7fb}
+    *{box-sizing:border-box} body{margin:0;background:#f7f9fc;color:var(--ink);font:16px/1.6 Arial,sans-serif}
+    main{width:min(900px,calc(100% - 32px));margin:40px auto 80px;background:#fff;padding:42px 54px;box-shadow:0 12px 40px #1d315018}
+    h1{margin:0;color:var(--blue);font-size:34px;line-height:1.15} h2{margin:34px 0 10px;color:var(--blue);font-size:23px} h3{margin:18px 0 5px;font-size:17px}
+    .lead{color:var(--muted);margin:8px 0 28px}.notice,.code{padding:14px 16px;border:1px solid var(--line);background:var(--soft);border-radius:8px}.notice{margin:14px 0}.code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;white-space:pre-wrap;font-size:14px}
+    table{width:100%;border-collapse:collapse;margin:12px 0 16px}th,td{padding:10px 12px;border:1px solid var(--line);text-align:left;vertical-align:top}th{color:#fff;background:var(--blue)}tr:nth-child(even){background:#fafbfd}
+    li{margin:5px 0}.source{color:var(--muted);font-size:14px}.tag{display:inline-block;padding:2px 8px;border-radius:99px;background:#eaf0ff;color:var(--blue);font-weight:700;font-size:13px}
+    @media(max-width:650px){main{padding:26px 20px;margin-top:0}h1{font-size:28px}table{font-size:14px}}
+  </style>
+</head>
+<body><main>
+  <h1>UIT Data Science Challenge 2026</h1>
+  <p class="lead">Cheat sheet: input, output, submission và cách chấm điểm</p>
+
+  <h2>1. Nếu chỉ nhớ một điều</h2>
+  <p>Bạn không nộp một ứng dụng chat AI hoàn chỉnh. Bạn nộp file dự đoán cho hệ thống chấm tự động. Hệ thống sẽ so sánh dự đoán với đáp án thật mà bạn không được xem trong vòng test.</p>
+  <div class="notice">Warmup có đáp án để bạn học format. Test thật ẩn đáp án để phân biệt các đội.</div>
+
+  <h2>2. Hai task đang xuất hiện trong các nguồn</h2>
+  <table><tr><th>Task</th><th>Bạn phải làm gì?</th><th>Output</th></tr>
+    <tr><td>LegalIR</td><td>Tìm các văn bản pháp luật liên quan đến câu hỏi.</td><td>Danh sách <code>document_id</code></td></tr>
+    <tr><td>LegalQA / hallucination</td><td>Phân loại câu trả lời có đúng context hay không.</td><td>Nhãn <code>no</code>, <code>intrinsic</code>, <code>extrinsic</code></td></tr>
+  </table>
+  <p class="source">Lưu ý: trang Codabench 10153 hiện hiển thị format hallucination classification, trong khi tài liệu Drive và warmup.json mô tả LegalIR. Cần xác nhận đúng task/competition với BTC trước khi nộp thật.</p>
+
+  <h2>3. LegalIR: nộp gì?</h2>
+  <h3>Input</h3><p>Câu hỏi tiếng Việt và kho context chứa các record có <code>id</code>, <code>name</code>, <code>link</code>, <code>passage</code>.</p>
+  <h3>Output</h3><p>Tạo một file <b>submission.zip</b> chỉ chứa một file <code>submission.json</code>:</p>
+  <div class="code">{
+  "147194": {
+    "answer": ["14681", "18032"]
+  }
+}</div>
+  <ul><li>Mỗi query tối đa 5 <code>document_id</code>.</li><li>Trả về hơn 5 ID có thể bị chấm 0 cho query đó.</li><li>Không viết đoạn trả lời dài trong submission LegalIR.</li></ul>
+
+  <h2>4. LegalIR được chấm như thế nào?</h2>
+  <p><b>Recall</b> là metric chính: trong các văn bản đúng, bạn tìm được bao nhiêu? <b>Precision</b> là metric phụ: trong các văn bản bạn trả về, có bao nhiêu cái đúng?</p>
+  <table><tr><th>Đáp án thật</th><th>Dự đoán</th><th>Kết quả</th></tr>
+    <tr><td>["100", "200"]</td><td>["100", "200", "300"]</td><td>Recall 1.0; Precision 2/3</td></tr>
+    <tr><td>["100", "200"]</td><td>["100"]</td><td>Recall 0.5; Precision 1.0</td></tr>
+  </table>
+
+  <h2>5. Hallucination classification: nộp gì?</h2>
+  <p>Theo format đang hiển thị trên trang Codabench 10153, output là <code>submit.csv</code> với đúng hai cột:</p>
+  <div class="code">id,predict_label
+1001,no
+1002,intrinsic
+1003,extrinsic</div>
+  <table><tr><th>Nhãn</th><th>Ý nghĩa</th></tr>
+    <tr><td><span class="tag">no</span></td><td>Câu trả lời được context hỗ trợ, không có hallucination.</td></tr>
+    <tr><td><span class="tag">intrinsic</span></td><td>Câu trả lời mâu thuẫn với context.</td></tr>
+    <tr><td><span class="tag">extrinsic</span></td><td>Câu trả lời thêm thông tin không có trong context.</td></tr>
+  </table>
+
+  <h2>6. Fake submission có được không?</h2>
+  <p>Bạn có thể tạo file giả để test format trong warmup, nhưng không thể fake điểm trong vòng chấm thật. Codabench tự động đối chiếu mỗi dự đoán với đáp án ẩn.</p>
+  <ul><li>Warmup: đáp án có thể được cung cấp để học format.</li><li>Public/private test: đáp án bị ẩn; private test thường quyết định thứ hạng cuối.</li></ul>
+
+  <h2>7. RAG nằm ở đâu?</h2>
+  <p>RAG là cách xây hệ thống: <b>Retrieval</b> (tìm tài liệu) + <b>Generation</b> (viết câu trả lời). LegalIR chỉ là phần Retrieval. LegalQA có thể dùng RAG. Nếu output yêu cầu document_id, chỉ cần retrieval; viết câu trả lời bằng LLM là không cần thiết.</p>
+
+  <h2>8. Checklist trước khi nộp</h2>
+  <ul><li>Xác định đúng task, competition ID, input và output schema.</li><li>Chạy baseline và validator: không thiếu ID, không sai cột, không quá 5 ID.</li><li>Nộp một file hợp lệ trước, sau đó mới tối ưu điểm.</li></ul>
+  <p class="source">Nguồn trong project: README.md, docs/research_status.md và data/raw/warmup.json.</p>
+</main></body></html>

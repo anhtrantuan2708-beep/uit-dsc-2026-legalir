@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UIT-DSC 2026 — Team Plan LegalQA</title>
+  <style>
+    :root{--ink:#172033;--muted:#64748b;--line:#e2e8f0;--blue:#2563eb;--soft:#eff6ff;--green:#047857;--orange:#c2410c;--bg:#f8fafc}
+    *{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.65 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+    .wrap{max-width:1080px;margin:auto;padding:34px 22px 60px}.hero{background:linear-gradient(135deg,#172554,#2563eb);color:white;border-radius:24px;padding:38px 40px;box-shadow:0 20px 50px #1e3a8a22}.eyebrow{text-transform:uppercase;letter-spacing:.12em;font-size:12px;opacity:.78}.hero h1{font-size:clamp(30px,5vw,52px);line-height:1.08;margin:10px 0 14px}.hero p{max-width:760px;margin:0;color:#dbeafe;font-size:17px}.status{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}.pill{background:#ffffff1c;border:1px solid #ffffff35;border-radius:999px;padding:7px 13px;font-size:13px}.section{margin-top:28px}.section h2{font-size:25px;margin:0 0 13px}.section h3{font-size:18px;margin:20px 0 8px}.card-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.card,.callout{background:white;border:1px solid var(--line);border-radius:16px;padding:20px;box-shadow:0 8px 22px #0f172a08}.card h3{margin-top:0}.card p{margin-bottom:0;color:var(--muted)}.callout{border-left:5px solid var(--blue);background:var(--soft)}.callout strong{color:#1e40af}table{width:100%;border-collapse:collapse;background:white;border:1px solid var(--line);border-radius:14px;overflow:hidden;display:table}th,td{text-align:left;padding:13px 14px;border-bottom:1px solid var(--line);vertical-align:top}th{background:#f1f5f9;font-size:13px;color:#334155}tr:last-child td{border-bottom:0}.timeline td:first-child{font-weight:700;white-space:nowrap;color:#1d4ed8}.checklist{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.check{background:white;border:1px solid var(--line);border-radius:12px;padding:11px 14px}.check:before{content:'□';font-size:20px;color:var(--blue);margin-right:9px;vertical-align:-2px}.code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;background:#0f172a;color:#e2e8f0;border-radius:14px;padding:18px;overflow:auto;font-size:13px}.note{color:var(--muted);font-size:13px}.footer{margin-top:35px;border-top:1px solid var(--line);padding-top:18px;color:var(--muted);font-size:13px}.footer a{color:var(--blue)}@media(max-width:760px){.wrap{padding:18px 14px 40px}.hero{padding:27px 22px;border-radius:18px}.card-grid,.checklist{grid-template-columns:1fr}table{font-size:13px}th,td{padding:10px 9px}.timeline td:first-child{white-space:normal}.section h2{font-size:22px}}
+    @media print{body{background:white}.wrap{max-width:none;padding:0}.hero{box-shadow:none;break-inside:avoid}.card,.callout,table{box-shadow:none}a{color:inherit;text-decoration:none}}
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <header class="hero">
+      <div class="eyebrow">Project manager brief · 09/08/2026</div>
+      <h1>UIT Data Science Challenge 2026</h1>
+      <p>Kế hoạch triển khai team cho <strong>Competition 17716 — Legal Question Answering (LegalQA)</strong>.</p>
+      <div class="status"><span class="pill">Output: câu trả lời tiếng Việt</span><span class="pill">Metric chính: METEOR</span><span class="pill">Metric phụ: ROUGE-L</span><span class="pill">Public: 06/08 → 18/09</span></div>
+    </header>
+
+    <section class="section">
+      <div class="callout"><strong>Điểm cần nhớ:</strong> 17716 là LegalQA, không phải LegalIR. Vì vậy không dùng Recall/Precision để chọn model cho competition này. Recall/Precision thuộc track LegalIR.</div>
+    </section>
+
+    <section class="section">
+      <h2>1. Competition yêu cầu gì?</h2>
+      <div class="card-grid">
+        <article class="card"><h3>Input</h3><p>Câu hỏi pháp luật bằng tiếng Việt, gắn với một <code>question_id</code>.</p></article>
+        <article class="card"><h3>Output</h3><p>Một câu trả lời văn xuôi bằng tiếng Việt cho mỗi câu hỏi.</p></article>
+        <article class="card"><h3>Đánh giá</h3><p>So sánh với câu trả lời tham chiếu của chuyên gia pháp lý bằng METEOR và ROUGE-L.</p></article>
+      </div>
+      <h3>Submission format</h3>
+      <div class="code">submission.zip
+└── submission.json
+
+{
+  "147194": {
+    "answer": "Theo quy định tại Điều 37..."
+  }
+}</div>
+      <p class="note">ZIP chỉ được chứa đúng một file submission.json. Mỗi question_id xuất hiện đúng một lần; answer phải là string UTF-8.</p>
+    </section>
+
+    <section class="section">
+      <h2>2. Phân vai team</h2>
+      <table>
+        <thead><tr><th>Vai trò</th><th>Trách nhiệm</th><th>Deliverable</th></tr></thead>
+        <tbody>
+          <tr><td>PM / Submission</td><td>Quản lý deadline, rules, candidate và public submission.</td><td>Rulebook, registry, quyết định bản cuối.</td></tr>
+          <tr><td>Data / Evaluation</td><td>Đọc dữ liệu, tạo local split, viết evaluator.</td><td>Data dictionary, local METEOR/ROUGE-L.</td></tr>
+          <tr><td>Retrieval</td><td>BM25, dense retrieval, hybrid/RRF.</td><td>Context và retrieval report.</td></tr>
+          <tr><td>QA / Grounding</td><td>Prompt, citation, kiểm tra câu trả lời không bịa.</td><td>QA pipeline và error analysis.</td></tr>
+          <tr><td>MLOps / Packaging</td><td>Reproducibility, validator, ZIP.</td><td>One-command run và submission artifact.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>3. Timeline</h2>
+      <table class="timeline">
+        <thead><tr><th>Thời gian</th><th>Mục tiêu</th><th>Gate chuyển bước</th></tr></thead>
+        <tbody>
+          <tr><td>09–10/08</td><td>Chốt quyền truy cập, dữ liệu, schema và validator.</td><td>Có sample submission.zip hợp lệ.</td></tr>
+          <tr><td>11–17/08</td><td>Dựng baseline extractive và BM25/RAG.</td><td>Chạy được một lệnh, có local score.</td></tr>
+          <tr><td>18–31/08</td><td>Mỗi thành viên làm một nhóm thí nghiệm.</td><td>Có bảng so sánh và log.</td></tr>
+          <tr><td>01–07/09</td><td>Hybrid, reranking, citation, grounding.</td><td>Candidate vượt baseline local.</td></tr>
+          <tr><td>08–14/09</td><td>Chọn candidate và kiểm tra public.</td><td>Chỉ còn 1–2 candidate chính.</td></tr>
+          <tr><td>15–18/09</td><td>Freeze public phase.</td><td>Không sửa code thiếu phê duyệt.</td></tr>
+          <tr><td>19–23/09</td><td>Private Test.</td><td>Nộp bản frozen, lưu biên nhận.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>4. Quy tắc thử nghiệm</h2>
+      <div class="card-grid">
+        <article class="card"><h3>Không submit ngẫu nhiên</h3><p>Mỗi thử nghiệm phải có hypothesis, owner, config, local score và experiment ID.</p></article>
+        <article class="card"><h3>Leaderboard chỉ là tín hiệu</h3><p>Không overfit theo một lần public score. Phải xem cả error analysis và local validation.</p></article>
+        <article class="card"><h3>Mọi thứ phải tái lập</h3><p>Lưu commit, seed, prompt, model metadata, ZIP và checksum.</p></article>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>5. Checklist trước khi nộp</h2>
+      <div class="checklist">
+        <div class="check">Đúng competition 17716 và đúng phase.</div>
+        <div class="check">Đủ toàn bộ question_id, không trùng hoặc thiếu.</div>
+        <div class="check">Mỗi value có đúng trường answer.</div>
+        <div class="check">answer là string tiếng Việt, UTF-8.</div>
+        <div class="check">ZIP bên ngoài tên submission.zip.</div>
+        <div class="check">Bên trong ZIP chỉ có submission.json.</div>
+        <div class="check">Đã chạy JSON/schema validator.</div>
+        <div class="check">Đã ghi experiment vào submission registry.</div>
+        <div class="check">Đã lưu local METEOR và ROUGE-L.</div>
+        <div class="check">Đã lưu commit, config và checksum.</div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>6. Việc cần làm ngay hôm nay</h2>
+      <ol>
+        <li>PM điền tên thành viên vào bảng phân vai.</li>
+        <li>Data lead xác nhận đã có đúng LegalQA question và corpus.</li>
+        <li>MLOps tạo validator và sample submission.</li>
+        <li>Evaluation lead tạo local split.</li>
+        <li>Retrieval/QA lead chạy baseline đầu tiên.</li>
+        <li>PM mở registry; mọi submission đều phải được ghi vào đó.</li>
+      </ol>
+    </section>
+
+    <footer class="footer">
+      Nguồn: <a href="https://www.codabench.org/competitions/17716/#/pages-tab">Codabench 17716</a> · <a href="https://www.citd.edu.vn/cuoc-thi-uit-data-science-challenge-2026/">CITD UIT-DSC 2026</a><br>
+      Tài liệu nội bộ team · Có thể mở trực tiếp, gửi qua chat hoặc dùng Print → Save as PDF.
+    </footer>
+  </main>
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LegalIR — Hiểu dữ liệu, prediction và điểm số</title>
+  <style>
+    :root { --ink:#172033; --muted:#667085; --line:#dbe3ee; --paper:#fff; --bg:#f6f8fc; --blue:#2563eb; --blue-soft:#eff6ff; --green:#047857; --green-soft:#ecfdf5; --orange:#c2410c; --orange-soft:#fff7ed; --purple:#7c3aed; }
+    * { box-sizing:border-box; } body { margin:0; color:var(--ink); background:var(--bg); font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; line-height:1.55; }
+    .wrap { width:min(1120px,calc(100% - 32px)); margin:auto; padding:32px 0 64px; }.hero { padding:42px; border-radius:26px; color:#fff; background:radial-gradient(circle at 80% 10%,#60a5fa 0,transparent 32%),linear-gradient(135deg,#172554,#2563eb 58%,#4338ca); overflow:hidden; }.eyebrow{font-size:12px;letter-spacing:.12em;text-transform:uppercase;opacity:.78;font-weight:750}.hero h1{font-size:clamp(31px,5vw,54px);line-height:1.08;max-width:800px;margin:10px 0 15px}.hero p{font-size:17px;max-width:750px;margin:0;color:#dbeafe}.chips{display:flex;gap:9px;flex-wrap:wrap;margin-top:24px}.chip{border:1px solid #ffffff4d;background:#ffffff1a;border-radius:999px;padding:6px 11px;font-size:13px}.section{margin-top:32px}.section h2{font-size:27px;line-height:1.25;margin:0 0 8px}.lead{margin:0;color:var(--muted);max-width:800px}.flow{display:grid;grid-template-columns:1fr 52px 1fr 52px 1fr;align-items:stretch;margin-top:20px}.node{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:20px;box-shadow:0 12px 30px #1720330a}.node.blue{background:var(--blue-soft);border-color:#bfdbfe}.node.green{background:var(--green-soft);border-color:#a7f3d0}.node h3{font-size:16px;margin:0 0 10px}.node p{font-size:14px;color:var(--muted);margin:0}.arrow{display:grid;place-items:center;color:var(--blue);font-size:28px}.code{font:12px/1.55 ui-monospace,SFMono-Regular,Menlo,monospace;background:#0f172a;color:#dbeafe;padding:14px;border-radius:12px;white-space:pre-wrap;margin-top:12px;overflow:auto}.red{color:#fca5a5}.yellow{color:#fcd34d}.green-text{color:#86efac}.callout{display:flex;gap:13px;align-items:flex-start;background:var(--orange-soft);border:1px solid #fed7aa;border-left:5px solid var(--orange);border-radius:14px;padding:16px 18px;margin-top:18px}.callout strong{color:#9a3412}.callout p{margin:0;color:#7c2d12}.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}.step-btn{cursor:pointer;text-align:left;border:1px solid var(--line);background:#fff;border-radius:14px;padding:15px;transition:.18s;min-height:100px}.step-btn:hover,.step-btn[aria-pressed="true"]{border-color:var(--blue);box-shadow:0 8px 20px #2563eb1a}.step-num{display:inline-grid;place-items:center;width:25px;height:25px;border-radius:99px;background:var(--blue-soft);color:var(--blue);font-weight:800;font-size:13px}.step-btn h3{margin:8px 0 3px;font-size:15px}.step-btn p{margin:0;color:var(--muted);font-size:13px}.stage{margin-top:14px;background:#0f172a;color:#fff;border-radius:16px;padding:23px;min-height:135px}.stage .label{color:#93c5fd;font-size:12px;text-transform:uppercase;letter-spacing:.11em}.stage h3{margin:7px 0;font-size:20px}.stage p{color:#cbd5e1;margin:0;max-width:720px}.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:18px}.card{padding:20px;background:#fff;border:1px solid var(--line);border-radius:16px}.card h3{margin:0 0 8px;font-size:17px}.card p,.card li{font-size:14px;color:var(--muted)}.card ul{padding-left:20px;margin:8px 0 0}.metric{display:grid;grid-template-columns:1.1fr 1fr 1fr 1fr;overflow:hidden;border:1px solid var(--line);border-radius:15px;background:#fff;margin-top:18px}.metric>*{padding:13px;border-bottom:1px solid var(--line)}.metric .head{font-weight:750;background:#f1f5f9;color:#334155;font-size:13px}.metric .good{color:var(--green);font-weight:750}.metric .target{color:var(--purple);font-weight:750}.tree{margin-top:18px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px;font:13px/1.8 ui-monospace,SFMono-Regular,Menlo,monospace}.tree b{font-family:inherit;color:var(--blue)}.tree span{color:var(--muted);font-family:inherit}.footer{margin-top:36px;color:var(--muted);font-size:13px;border-top:1px solid var(--line);padding-top:16px}@media(max-width:780px){.wrap{width:min(100% - 24px,1120px);padding-top:12px}.hero{padding:29px 22px}.flow{grid-template-columns:1fr;gap:10px}.arrow{transform:rotate(90deg);height:32px}.steps,.grid{grid-template-columns:1fr}.metric{grid-template-columns:1.1fr 1fr 1fr 1fr;font-size:12px}.metric>*{padding:9px 7px}.section h2{font-size:23px}}
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <header class="hero">
+      <div class="eyebrow">LegalIR · giải thích cho newbie</div>
+      <h1>BTC giấu đáp án. Vậy model đang làm gì?</h1>
+      <p>Model không biết đáp án Public Test. Nó chỉ đọc câu hỏi, tìm trong 8.532 văn bản, rồi tự chọn tối đa 5 ID có vẻ liên quan nhất.</p>
+      <div class="chips"><span class="chip">1.000 câu Public Test</span><span class="chip">8.532 văn bản pháp luật</span><span class="chip">tối đa 5 IDs / câu</span><span class="chip">Recall là metric chính</span></div>
+    </header>
+
+    <section class="section">
+      <h2>1. Ba thứ dễ bị nhầm nhất</h2>
+      <p class="lead">Nhìn theo luồng từ trái sang phải. Chỉ phần ở giữa là code của mình “suy nghĩ”.</p>
+      <div class="flow">
+        <article class="node blue">
+          <h3>① BTC giao Public Test</h3>
+          <p>Có câu hỏi, nhưng không có document ID đúng.</p>
+          <pre class="code">{
+  <span class="yellow">"question"</span>: "...phá sản...?",
+  <span class="yellow">"answer"</span>: <span class="red">null</span>
+}</pre>
+        </article>
+        <div class="arrow">→</div>
+        <article class="node">
+          <h3>② Retriever của mình</h3>
+          <p>Đọc toàn bộ corpus, chấm điểm từng văn bản theo mức liên quan với câu hỏi.</p>
+          <pre class="code"><span class="green-text">BM25 score</span>
+question ↔ passage
+
+8.532 documents
+      ↓
+rank từ cao đến thấp</pre>
+        </article>
+        <div class="arrow">→</div>
+        <article class="node green">
+          <h3>③ Prediction để nộp</h3>
+          <p>5 ID do model tự chọn. Đây <strong>không phải</strong> đáp án BTC.</p>
+          <pre class="code">{
+  <span class="yellow">"answer"</span>: [
+    <span class="green-text">"20457", "151530", ...</span>
+  ]
+}</pre>
+        </article>
+      </div>
+      <div class="callout"><div>🔒</div><p><strong>Đáp án thật chỉ ở server Codabench.</strong> Sau khi bạn upload, Codabench so prediction của mình với đáp án bí mật rồi mới trả Recall và Precision.</p></div>
+    </section>
+
+    <section class="section">
+      <h2>2. Bấm từng bước để thấy code đang làm gì</h2>
+      <div class="steps">
+        <button class="step-btn" data-step="0" aria-pressed="true"><span class="step-num">1</span><h3>Đọc dữ liệu</h3><p>Question + 8.532 passage</p></button>
+        <button class="step-btn" data-step="1" aria-pressed="false"><span class="step-num">2</span><h3>Tạo index</h3><p>Biến text thành dữ liệu tìm kiếm</p></button>
+        <button class="step-btn" data-step="2" aria-pressed="false"><span class="step-num">3</span><h3>Chọn top 5</h3><p>Xuất ID, không bịa đáp án</p></button>
+      </div>
+      <div class="stage" id="stage"></div>
+    </section>
+
+    <section class="section">
+      <h2>3. Nếu ai cũng dùng AI, hơn nhau ở đâu?</h2>
+      <p class="lead">AI là dụng cụ chung. Điểm khác biệt là cách team đo, sửa và kết hợp các kỹ thuật.</p>
+      <div class="grid">
+        <article class="card"><h3>AI cho mọi đội</h3><ul><li>Viết baseline BM25</li><li>Giải thích code</li><li>Gợi ý model embedding</li><li>Tạo script nhanh hơn</li></ul></article>
+        <article class="card"><h3>Thứ tạo khoảng cách</h3><ul><li>Validation split không bị leak</li><li>Hiểu title, Điều/Khoản/mã văn bản</li><li>Dense + BM25 + fusion</li><li>Rerank đúng 5 ID cuối</li><li>Error analysis liên tục</li></ul></article>
+      </div>
+      <div class="callout"><div>🏎️</div><p><strong>Ví dụ dễ nhớ:</strong> AI giống bộ dụng cụ trong cuộc đua xe. Đội thắng không phải đội có tua-vít, mà là đội đo đúng lỗi, chỉnh đúng động cơ và chạy thử nhiều vòng hơn.</p></div>
+    </section>
+
+    <section class="section">
+      <h2>4. Điểm số nói gì?</h2>
+      <p class="lead">Top 5 ID làm Recall tăng nhưng Precision thường giảm. Vì bảng xếp hạng ưu tiên Recall, mục tiêu trước mắt là không bỏ sót văn bản đúng.</p>
+      <div class="metric">
+        <div class="head">Variant</div><div class="head">Recall</div><div class="head">Precision</div><div class="head">Ý nghĩa</div>
+        <div>Raw BM25</div><div>0.3431</div><div>0.0724</div><div>mốc đầu</div>
+        <div>+ normalize/title</div><div class="good">0.4189</div><div class="good">0.0889</div><div>đã đo và tốt hơn</div>
+        <div>+ train query profiles</div><div class="good">0.4234</div><div class="good">0.0899</div><div>candidate lexical</div>
+        <div>Dense E5 local</div><div class="good">0.4688</div><div class="good">0.0985</div><div>hiểu nghĩa gần nhau</div>
+        <div>Hybrid top-100 → RRF → top-5</div><div class="good">0.5768</div><div class="good">0.1214</div><div>candidate tốt nhất hiện tại</div>
+        <div>Leaderboard Public</div><div class="target">~0.93–0.96</div><div>~0.20–0.25</div><div>mục tiêu dài hạn</div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>5. Map source code — đọc theo thứ tự này</h2>
+      <div class="tree"><b>data/real/</b> <span>← dữ liệu BTC, không sửa</span><br>├── <b>train.json</b> <span>← 7.000 câu có đáp án, dùng để học/đo</span><br>├── <b>public-official.json</b> <span>← 1.000 câu, answer = null</span><br>└── <b>contexts/</b> <span>← 8.532 văn bản để tìm</span><br><br><b>src/legalir_baseline.py</b> <span>← “bộ não” BM25: index + rank top 5</span><br><b>src/evaluate_legalir.py</b> <span>← tính Recall/Precision trên train/dev</span><br><b>src/validate_legalir_submission.py</b> <span>← kiểm tra JSON trước khi nộp</span><br><b>src/build_legalir_query_profiles.py</b> <span>← tận dụng câu hỏi train để mở rộng document</span><br><br><b>submissions/</b> <span>← output prediction và ZIP sẵn nộp</span><br><b>reports/experiments/</b> <span>← lịch sử experiment, không đoán mò</span></div>
+    </section>
+
+    <section class="section">
+      <h2>6. Đây chính là pipeline — và code nằm ở đâu?</h2>
+      <p class="lead"><strong>Pipeline</strong> nghĩa là một dây chuyền: output của bước trước trở thành input của bước sau. Bạn không cần hiểu toàn bộ code cùng lúc; đọc theo 4 khối dưới đây.</p>
+      <div class="flow">
+        <article class="node blue"><h3>Input</h3><p><code>train.json</code>, <code>public-official.json</code> và <code>contexts/*.json</code></p></article>
+        <div class="arrow">→</div>
+        <article class="node"><h3>Retrieve + Fusion</h3><p>BM25 và Dense mỗi nhánh đề xuất 100 ID, RRF chọn 5 ID cuối.</p></article>
+        <div class="arrow">→</div>
+        <article class="node green"><h3>Output</h3><p><code>submission.json</code> → validate → <code>submission.zip</code></p></article>
+      </div>
+      <div class="grid">
+        <article class="card"><h3>A. Tách từ và chuẩn hóa text</h3><p>Code biến câu hỏi và passage thành những token có thể so sánh được. Bỏ dấu giúp câu hỏi tiếng Việt khớp với title/link dạng không dấu.</p><pre class="code">def tokens(text, fold_accents, remove_stopwords):
+    value = fold(text) if fold_accents else text.lower()
+    values = TOKEN_RE.findall(value)
+    return [word for word in values
+            if word not in stopwords]</pre><p><strong>File:</strong> <code>src/legalir_baseline.py</code></p></article>
+        <article class="card"><h3>B. Tạo BM25 index</h3><p>Code đọc 8.532 passage một lần, đếm token và lưu chúng vào index. Nhờ vậy không cần đọc lại toàn bộ file cho từng câu hỏi.</p><pre class="code">for doc_index, item in enumerate(corpus):
+    text = item["passage"]
+    text = item["name"] + " " + text
+    counts = Counter(tokens(text, ...))
+    postings[term].append((doc_index, tf))</pre><p><strong>Ý nghĩa:</strong> biến corpus thành “mục lục tìm kiếm”.</p></article>
+        <article class="card"><h3>C. Xếp hạng và lấy top 5</h3><p>Mỗi từ trong câu hỏi đóng góp một điểm. Document chứa các từ hiếm và khớp tốt sẽ được điểm BM25 cao hơn.</p><pre class="code">scores[doc_index] += idf * (
+    term_frequency * (k1 + 1) / denominator
+)
+
+ranked = top_5_documents(scores)
+return document_ids(ranked)</pre><p><strong>Output:</strong> chỉ là ID dự đoán, không phải đáp án BTC.</p></article>
+        <article class="card"><h3>D. Đo và kiểm tra</h3><p>Với train/dev có nhãn, code so prediction với gold ID. Với Public, chỉ validator chạy được vì gold answer bị giấu.</p><pre class="code">relevant = gold_ids & predicted_ids
+recall = len(relevant) / len(gold_ids)
+precision = len(relevant) / len(predicted_ids)
+
+assert len(answer) <= 5</pre><p><strong>Files:</strong> <code>evaluate_legalir.py</code> và <code>validate_legalir_submission.py</code></p></article>
+      </div>
+      <div class="callout"><div>🧭</div><p><strong>Thứ tự nên đọc:</strong> đầu tiên mở <code>scripts/run_legalir_public_best.sh</code> để thấy toàn bộ pipeline được gọi ra sao; sau đó đọc <code>legalir_baseline.py</code>, <code>dense_legalir.py</code> và <code>fuse_legalir_rankings.py</code>.</p></div>
+    </section>
+
+    <section class="section">
+      <h2>7. Roadmap từ đây</h2>
+      <div class="flow">
+        <article class="node green"><h3>Đã có</h3><p>BM25 + Dense E5 + RRF fusion<br><strong>Recall 0.5768</strong></p></article>
+        <div class="arrow">→</div>
+        <article class="node blue"><h3>Sắp làm</h3><p>Rerank 100 ứng viên đầu bằng cross-encoder và phân tích lỗi theo nhóm câu hỏi.</p></article>
+        <div class="arrow">→</div>
+        <article class="node"><h3>Mục tiêu</h3><p>BM25 + dense fusion + reranker + error analysis để tăng Recall.</p></article>
+      </div>
+    </section>
+    <footer class="footer">UIT Data Science Challenge 2026 · LegalIR · Tài liệu học nội bộ. Dữ liệu Public Test không chứa đáp án thật.</footer>
+  </main>
+  <script>
+    const stages=[
+      {label:'Bước 1 · Input',title:'Model chỉ thấy câu hỏi, không thấy đáp án',body:'public-official.json có answer: null. Corpus lại có 8.532 passage và ID. Đây là toàn bộ “nguyên liệu” model được phép dùng.'},
+      {label:'Bước 2 · Retrieval',title:'BM25 biến văn bản thành điểm số',body:'Code chuẩn hóa chữ, bỏ một số từ đệm, thêm title và so token của question với token của từng passage. Sau đó nó xếp hạng document theo điểm.'},
+      {label:'Bước 3 · Submission',title:'Top 5 chỉ là phỏng đoán có căn cứ',body:'Code lấy 5 document ID điểm cao nhất, ghi vào submission.json và nén ZIP. Chỉ Codabench có ground truth để biết các ID đó đúng đến đâu.'}
+    ];
+    const stage=document.querySelector('#stage'); const buttons=[...document.querySelectorAll('.step-btn')];
+    function show(i){const s=stages[i];stage.innerHTML=`<div class="label">${s.label}</div><h3>${s.title}</h3><p>${s.body}</p>`;buttons.forEach((b,n)=>b.setAttribute('aria-pressed',n===i?'true':'false'));}
+    buttons.forEach(b=>b.addEventListener('click',()=>show(Number(b.dataset.step))));show(0);
+  </script>
+</body>
+</html>
