@@ -46,17 +46,36 @@ def main() -> None:
     args = parser.parse_args()
 
     import numpy as np
-    from sentence_transformers import SentenceTransformer
+
+    def cached_subset(embedding_path: Path, ids_path: Path, desired_ids: list[str]):
+        if not embedding_path.exists() or not ids_path.exists():
+            return None
+        cached_ids = load(ids_path)
+        if cached_ids == desired_ids:
+            return np.load(embedding_path)
+        positions = {query_id: index for index, query_id in enumerate(cached_ids)}
+        if not all(query_id in positions for query_id in desired_ids):
+            return None
+        values = np.load(embedding_path)
+        return values[[positions[query_id] for query_id in desired_ids]]
+
+    def load_model():
+        nonlocal model
+        if model is None:
+            from sentence_transformers import SentenceTransformer
+
+            model = SentenceTransformer(args.model, cache_folder=str(args.model_cache))
+        return model
 
     queries, train = load(args.queries), load(args.labelled_train)
     train_ids = list(train)
     model = None
 
-    if args.embeddings.exists() and args.embedding_ids.exists() and load(args.embedding_ids) == train_ids:
+    train_embeddings = cached_subset(args.embeddings, args.embedding_ids, train_ids)
+    if train_embeddings is not None:
         print("reusing local labelled-question embeddings")
-        train_embeddings = np.load(args.embeddings)
     else:
-        model = SentenceTransformer(args.model, cache_folder=str(args.model_cache))
+        model = load_model()
         print(f"encoding {len(train_ids)} labelled training questions locally")
         train_embeddings = model.encode(
             [f"query: {train[query_id]['question']}" for query_id in train_ids],
@@ -70,18 +89,18 @@ def main() -> None:
         args.embedding_ids.write_text(json.dumps(train_ids), encoding="utf-8")
 
     query_ids = list(queries)
+    query_embeddings = None
     if (
         args.query_embeddings
         and args.query_embedding_ids
-        and args.query_embeddings.exists()
-        and args.query_embedding_ids.exists()
-        and load(args.query_embedding_ids) == query_ids
     ):
+        query_embeddings = cached_subset(
+            args.query_embeddings, args.query_embedding_ids, query_ids
+        )
+    if query_embeddings is not None:
         print("reusing local query embeddings")
-        query_embeddings = np.load(args.query_embeddings)
     else:
-        if model is None:
-            model = SentenceTransformer(args.model, cache_folder=str(args.model_cache))
+        model = load_model()
         query_embeddings = model.encode(
             [f"query: {queries[query_id]['question']}" for query_id in query_ids],
             batch_size=args.batch_size,

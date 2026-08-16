@@ -12,10 +12,12 @@ def main() -> None:
     parser.add_argument("input", type=Path)
     parser.add_argument("output", type=Path)
     parser.add_argument("--size", type=int, default=100)
+    parser.add_argument("--offset", type=int, default=0)
     args = parser.parse_args()
 
     rows = json.loads(args.input.read_text(encoding="utf-8"))
-    selected_ids = sorted(rows, key=lambda value: hashlib.sha256(value.encode()).hexdigest())[: args.size]
+    ranked_ids = sorted(rows, key=lambda value: hashlib.sha256(value.encode()).hexdigest())
+    selected_ids = ranked_ids[args.offset : args.offset + args.size]
     subset = {query_id: rows[query_id] for query_id in selected_ids}
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(subset, ensure_ascii=False, indent=2), encoding="utf-8")

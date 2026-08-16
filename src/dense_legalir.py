@@ -65,6 +65,8 @@ def main() -> None:
     parser.add_argument("--model-cache", type=Path, default=Path("models/e5-small"))
     parser.add_argument("--embeddings", type=Path, default=Path("data/derived/e5_corpus_embeddings.npy"))
     parser.add_argument("--embedding-ids", type=Path, default=Path("data/derived/e5_corpus_ids.json"))
+    parser.add_argument("--query-embeddings", type=Path)
+    parser.add_argument("--query-embedding-ids", type=Path)
     parser.add_argument("--batch-size", type=int, default=32)
     parser.add_argument("--top-k", type=int, default=5)
     parser.add_argument("--max-chars", type=int, default=6000)
@@ -72,7 +74,6 @@ def main() -> None:
 
     try:
         import numpy as np
-        from sentence_transformers import SentenceTransformer
     except ImportError as error:
         raise SystemExit(
             "Dense dependencies missing. Run: uv pip install --python .venv/bin/python -r requirements-dense.txt"
@@ -83,20 +84,47 @@ def main() -> None:
     if not corpus:
         raise SystemExit("No corpus records found")
 
-    model = SentenceTransformer(args.model, cache_folder=str(args.model_cache))
+    model = None
+    if not (
+        args.embeddings.exists()
+        and args.embedding_ids.exists()
+        and load_json(args.embedding_ids)
+        == [str(row.get("source_id", row["id"])) for row in corpus]
+    ):
+        from sentence_transformers import SentenceTransformer
+
+        model = SentenceTransformer(args.model, cache_folder=str(args.model_cache))
     corpus_embeddings, doc_ids = load_or_encode_corpus(
         model, corpus, args.embeddings, args.embedding_ids, args.batch_size, args.max_chars
     )
 
     query_ids = list(queries)
-    query_texts = [f"query: {queries[query_id]['question']}" for query_id in query_ids]
-    query_embeddings = model.encode(
-        query_texts,
-        batch_size=args.batch_size,
-        normalize_embeddings=True,
-        show_progress_bar=True,
-        convert_to_numpy=True,
-    )
+    query_embeddings = None
+    if (
+        args.query_embeddings
+        and args.query_embedding_ids
+        and args.query_embeddings.exists()
+        and args.query_embedding_ids.exists()
+    ):
+        cached_ids = load_json(args.query_embedding_ids)
+        positions = {query_id: index for index, query_id in enumerate(cached_ids)}
+        if all(query_id in positions for query_id in query_ids):
+            cached = np.load(args.query_embeddings)
+            query_embeddings = cached[[positions[query_id] for query_id in query_ids]]
+            print(f"reusing local query embeddings: {args.query_embeddings}")
+    if query_embeddings is None:
+        if model is None:
+            from sentence_transformers import SentenceTransformer
+
+            model = SentenceTransformer(args.model, cache_folder=str(args.model_cache))
+        query_texts = [f"query: {queries[query_id]['question']}" for query_id in query_ids]
+        query_embeddings = model.encode(
+            query_texts,
+            batch_size=args.batch_size,
+            normalize_embeddings=True,
+            show_progress_bar=True,
+            convert_to_numpy=True,
+        )
     scores = query_embeddings @ corpus_embeddings.T
     # Keep a longer internal ranking for fusion/reranking.  Submission files are
     # checked separately and must contain no more than five document IDs.
