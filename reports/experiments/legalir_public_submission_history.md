@@ -7,6 +7,7 @@
 | V5: V4 + safe rerank fifth slot | 886623 | 0.8020 | 0.1724 | Superseded |
 | V9: tuned dense-question voting | — | 0.84625 | 0.1812 | Superseded |
 | V10: BGE top-10 reranking | — | **0.85467** | **0.1828** | **Current Public best** |
+| V11: learned multi-ranking fusion | — | 0.77558 | 0.1662 | Rejected |
 
 V5 retains the first four IDs from the V4 multi-retriever result, and uses the
 cross-encoder reranker only to fill the fifth slot.  Its local dev result was
@@ -117,4 +118,18 @@ its local Recall 0.8562 and Precision 0.1821. It is the current Public baseline.
   queries with five unique corpus IDs each and one `submission.json` in the ZIP.
 - SHA-256: `3804d1b854ae7456d9d3efc1e9c1f37ef5c54995e0fa7c5d640a11e254f63ebd`.
 
-Decision: V11 passes the local gate and is ready for one Public submission.
+Public result: Recall **0.77558**, Precision **0.1662**. This is a severe drop
+from V10 despite the OOF local gain. V11 changed 999/1,000 Public queries and
+was not conservative enough. Reject V11; V10 remains the Public baseline.
+
+## V12 offline audit (2026-08-16)
+
+- Dev/Public source lengths and pairwise ranking agreement were similar, so no
+  large source-order or candidate-generation shift was found.
+- Conservative V10/V11 blending peaked at local Recall 0.8733 when only V10's
+  first ID was retained, but still depended on the failed learned model.
+- Removing the document-frequency feature reduced source-only OOF Recall to
+  0.8670; retaining V10's first ID reached 0.8685.
+
+Decision: stop before Public. The source-only candidate does not reach the 0.87
+gate, and no further learned-fusion submission is justified in this round.

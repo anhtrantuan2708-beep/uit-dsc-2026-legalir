@@ -28,6 +28,13 @@ model can learn this from ranking positions without rerunning embeddings.
 V11 improves Recall by 0.0166 over V10 local, so it passes the required +0.01
 gate. Public inference reuses cached rankings and takes only seconds.
 
+## Public result and rejection
+
+V11 Public scored Recall **0.77558** and Precision **0.1662**, versus V10's
+Recall 0.85467 and Precision 0.1828. The OOF evaluation did not protect against
+document-level distribution shift, and the model changed 999/1,000 queries.
+V11 is rejected; V10 remains the Public baseline.
+
 ## Artifact
 
 `submissions/legalir_public_v11.zip`

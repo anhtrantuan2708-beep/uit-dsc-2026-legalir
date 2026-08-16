@@ -29,6 +29,7 @@ def build_rows(
     rankings: list[dict],
     frequency: Counter[str],
     gold: dict | None = None,
+    include_frequency: bool = True,
 ) -> tuple[np.ndarray, np.ndarray, np.ndarray, list[tuple[str, str]]]:
     features: list[list[float]] = []
     labels: list[int] = []
@@ -60,14 +61,9 @@ def build_rows(
                 reciprocal_sum += reciprocal
                 best_rank = min(best_rank, rank)
                 row.extend((1.0, reciprocal, math.log1p(rank) / math.log(101)))
-            row.extend(
-                (
-                    present / len(rankings),
-                    reciprocal_sum,
-                    1.0 / best_rank,
-                    math.log1p(frequency[document_id]),
-                )
-            )
+            row.extend((present / len(rankings), reciprocal_sum, 1.0 / best_rank))
+            if include_frequency:
+                row.append(math.log1p(frequency[document_id]))
             features.append(row)
             labels.append(int(document_id in gold_ids))
             groups.append(query_id)
@@ -130,13 +126,20 @@ def main() -> None:
     parser.add_argument("--min-samples-leaf", type=int, default=30)
     parser.add_argument("--l2", type=float, default=1.0)
     parser.add_argument("--positive-weight", type=float)
+    parser.add_argument("--disable-frequency", action="store_true")
     args = parser.parse_args()
 
     gold = load(args.gold)
     frequency = document_frequency(load(args.labelled_train))
     train_rankings = [load(path) for path in args.train_source]
     query_ids = list(gold)
-    x, y, groups, row_keys = build_rows(query_ids, train_rankings, frequency, gold)
+    x, y, groups, row_keys = build_rows(
+        query_ids,
+        train_rankings,
+        frequency,
+        gold,
+        include_frequency=not args.disable_frequency,
+    )
     print(f"train rows={len(y)} positives={int(y.sum())} features={x.shape[1]}")
 
     if args.test_source:
@@ -146,7 +149,12 @@ def main() -> None:
         model.fit(x, y)
         test_rankings = [load(path) for path in args.test_source]
         test_ids = list(test_rankings[0])
-        test_x, _, _, test_keys = build_rows(test_ids, test_rankings, frequency)
+        test_x, _, _, test_keys = build_rows(
+            test_ids,
+            test_rankings,
+            frequency,
+            include_frequency=not args.disable_frequency,
+        )
         scores = model.predict_proba(test_x)[:, 1]
         result = rankings_from_scores(test_keys, scores, args.top_k)
     else:
