@@ -1,0 +1,54 @@
+# LegalIR V12 chunk retrieval and confidence router
+
+Date: 2026-08-17
+
+## Motivation
+
+The earlier corpus retrievers indexed each legal document as one long passage.
+This hides relevant Điều/Chương text deep inside documents. V12 builds a
+disk-backed SQLite FTS5 index over 463,253 legal chunks while preserving each
+source document ID.
+
+## Chunk candidate retrieval
+
+On the fixed 100-query smoke block, direct FTS chunk retrieval reached:
+
+| Cutoff | Recall |
+|---|---:|
+| 5 | 0.7250 |
+| 20 | 0.8367 |
+| 50 | 0.8992 |
+| 100 | **0.9467** |
+
+The candidate ceiling is strong, but fixed RRF fusion and unconditional BGE
+reranking both reduced V10 Recall. They are rejected.
+
+## Confidence-routed fallback
+
+BGE reranks the actual matched chunks rather than reconstructed whole-document
+evidence. The alternate ranking is used only when:
+
+- BGE top score is at least 0.9;
+- top1 minus top2 score is at least 0.002;
+- the first four V10 IDs are retained, and only the fifth slot is filled from
+  the chunk ranking.
+
+The rule was chosen on smoke blocks A and B, then checked unchanged on the
+previously unseen block C:
+
+| Block | V10 Recall@5 | Router Recall@5 | Gain | Router Precision@5 |
+|---|---:|---:|---:|---:|
+| A | 0.8692 | 0.8817 | +0.0125 | 0.1900 |
+| B | 0.8750 | 0.8950 | +0.0200 | 0.1840 |
+| C | 0.8000 | 0.8350 | **+0.0350** | 0.1720 |
+
+The repeated gain passes the smoke gate. Full 1,003-query Dev validation is
+the next required gate. It is resumable in 100-query shards through
+`scripts/resume_legalir_v12_chunk_router_dev.sh`. No Public submission exists
+for this candidate yet, and V10 remains the confirmed Public baseline.
+
+## Rejected BGE question-KNN check
+
+BGE reranking of E5-nearest labelled questions improved one smoke block from
+0.8692 to 0.8817, but the gain disappeared on full Dev. This branch is kept as
+reproducible source code but is not a Public candidate.

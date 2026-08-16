@@ -9,8 +9,8 @@ CANDIDATES="$ROOT/tmp/docdisjoint_hybrid_w1_k20_top100.json"
 cd "$ROOT"
 
 mkdir -p tmp/docdisjoint_bge_shards
-for start in 0 200 400 600 800 1000; do
-  size=200
+for start in 0 100 200 300 400 500 600 700 800 900 1000; do
+  size=100
   [[ "$start" == 1000 ]] && size=8
   shard="tmp/docdisjoint_bge_shards/bge_${start}.json"
   if [[ -s "$shard" ]]; then
@@ -22,7 +22,7 @@ for start in 0 200 400 600 800 1000; do
     "$QUERIES" "$CORPUS" "$CANDIDATES" "$shard" \
     --model BAAI/bge-reranker-v2-m3 \
     --model-cache models/bge-reranker-v2-m3 \
-    --candidate-k 20 --top-k 20 --evidence-chunks 2 --batch-size 8 \
+    --candidate-k 20 --top-k 20 --evidence-chunks 2 --batch-size 16 \
     --query-start "$start" --max-queries "$size"
 done
 
