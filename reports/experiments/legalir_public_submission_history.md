@@ -5,7 +5,8 @@
 | V1: BM25 + Dense RRF | 886134 | 0.5843 | 0.1248 | Baseline |
 | V3: supervised 3-way hybrid | 886603 | 0.7502 | 0.1610 | Keep |
 | V5: V4 + safe rerank fifth slot | 886623 | 0.8020 | 0.1724 | Superseded |
-| V9: tuned dense-question voting | — | **0.84625** | **0.1812** | **Current Public best** |
+| V9: tuned dense-question voting | — | 0.84625 | 0.1812 | Superseded |
+| V10: BGE top-10 reranking | — | **0.85467** | **0.1828** | **Current Public best** |
 
 V5 retains the first four IDs from the V4 multi-retriever result, and uses the
 cross-encoder reranker only to fill the fifth slot.  Its local dev result was
@@ -100,4 +101,20 @@ V10 Public inference completed in ten resumable 100-query shards. The validated
 archive is `submissions/legalir_public_v10.zip`; it contains exactly one
 `submission.json`, 1,000 queries, five unique corpus IDs per query, and has
 SHA-256 `3576bffd93a6eda9c8e437ff5a1dcc5253fb8d69c76b0f4b84591a550537f6aa`.
-V10 remains a candidate until its Codabench score is known.
+V10 Public scored Recall **0.85467** and Precision **0.1828**, closely matching
+its local Recall 0.8562 and Precision 0.1821. It is the current Public baseline.
+
+## Candidate V11: learned multi-ranking fusion (2026-08-16)
+
+- Candidate-level HistGradientBoosting model over nine existing rankings.
+- Features: presence, reciprocal rank and normalized rank per source, source
+  consensus, reciprocal-rank sum, best rank and labelled-train document prior.
+- Honest five-fold out-of-fold dev evaluation: Recall **0.8728**, Precision
+  **0.1858**. This is +0.0166 Recall over V10 local and passes the +0.01 gate.
+- A 31-leaf variant fell to Recall 0.8628; the seven-leaf model was selected and
+  the sweep stopped.
+- Public artifact: `submissions/legalir_public_v11.zip`, validated as 1,000
+  queries with five unique corpus IDs each and one `submission.json` in the ZIP.
+- SHA-256: `3804d1b854ae7456d9d3efc1e9c1f37ef5c54995e0fa7c5d640a11e254f63ebd`.
+
+Decision: V11 passes the local gate and is ready for one Public submission.
