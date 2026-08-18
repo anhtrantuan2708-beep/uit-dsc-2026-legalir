@@ -28,15 +28,19 @@ reranking both reduced V10 Recall. They are rejected.
 BGE reranks the actual matched chunks rather than reconstructed whole-document
 evidence. The alternate ranking is used only when:
 
-- BGE top score is at least 0.95;
+- BGE top score is at least 0.93;
 - the first four V10 IDs are retained, and only the fifth slot is filled from
   the chunk ranking.
 
 The initial `0.9 / 0.002` confidence rule passed smoke blocks A–C. A later
-threshold check retained the stricter top-score requirement but removed the
-margin gate: on full-Dev queries 0–199 it improved V10 from Recall 0.8408 to
-0.8658, and on the previously unseen smoke block C it improved 0.8350 to
-0.8450. The rule is now fixed as `0.95 / 0` for full-Dev validation.
+threshold check removed the margin gate. On the first 900 full-Dev queries,
+the `0.93 / 0` gate reached Recall 0.8683, narrowly above `0.95 / 0` at
+0.8678; both retain the first four V10 IDs and route only the fifth slot. The
+rule is therefore fixed as `0.93 / 0` for final full-Dev validation.
+
+| Dev scope | V10 Recall@5 | V12 Recall@5 | V10 Precision@5 | V12 Precision@5 |
+|---|---:|---:|---:|---:|
+| First 900 queries | 0.8575 | **0.8683** | 0.1818 | **0.1847** |
 
 The earlier smoke result with the initial conservative rule was:
 
