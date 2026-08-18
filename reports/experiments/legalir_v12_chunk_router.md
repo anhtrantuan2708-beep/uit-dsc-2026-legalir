@@ -61,8 +61,10 @@ and issuer (8,499). The sidecar is a useful fallback for explicit legal
 references, but a compact metadata-only FTS test was weak on smoke100
 (Recall@5 0.2500; Recall@100 0.5317), so it must not replace V10 or the chunk
 retriever. `chunk_legalir_contexts.py --structured` additionally retains the
-Article heading when it splits by Clause/Point; this is the data-level
-representation being validated by V12's matched-chunk reranker.
+Article heading when it splits by Clause/Point. It is an implementation-ready
+next data representation, but it is **not** part of the current V12 full-Dev
+run: that run validates the existing Article-level chunk index and its
+matched-chunk reranker first.
 
 ## Rejected BGE question-KNN check
 
