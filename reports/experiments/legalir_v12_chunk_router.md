@@ -47,6 +47,23 @@ the next required gate. It is resumable in 100-query shards through
 `scripts/resume_legalir_v12_chunk_router_dev.sh`. No Public submission exists
 for this candidate yet, and V10 remains the confirmed Public baseline.
 
+## Data representation audit (2026-08-18)
+
+The official corpus contains 8,532 documents, but its raw representation is
+very uneven: median passage length is 23,110 characters, p99 is 285,366, and
+the longest passage is 5.98 million characters. In addition, 1,125 documents
+have no populated `name` field. Searching a complete document therefore gives
+the model a large amount of unrelated text.
+
+`build_legalir_metadata.py` derives a local sidecar only from the organizer
+corpus: document number (8,253 documents), legal type (8,199), title (8,281)
+and issuer (8,499). The sidecar is a useful fallback for explicit legal
+references, but a compact metadata-only FTS test was weak on smoke100
+(Recall@5 0.2500; Recall@100 0.5317), so it must not replace V10 or the chunk
+retriever. `chunk_legalir_contexts.py --structured` additionally retains the
+Article heading when it splits by Clause/Point; this is the data-level
+representation being validated by V12's matched-chunk reranker.
+
 ## Rejected BGE question-KNN check
 
 BGE reranking of E5-nearest labelled questions improved one smoke block from
