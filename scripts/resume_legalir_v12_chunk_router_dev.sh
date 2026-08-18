@@ -35,6 +35,6 @@ done
   tmp/dev_v12_fts_chunkaware_bge_top20.json \
   tmp/dev_v12_fts_chunkaware_bge_scores.json \
   tmp/dev_v12_chunk_router_k5.json \
-  --min-score 0.9 --min-margin 0.002 --keep-base 4 --top-k 5
+  --min-score 0.95 --min-margin 0 --keep-base 4 --top-k 5
 .venv/bin/python src/evaluate_legalir.py \
   data/derived/legalir_dev.json tmp/dev_v12_chunk_router_k5.json --top-k 5
