@@ -55,6 +55,25 @@ the next required gate. It is resumable in 100-query shards through
 `scripts/resume_legalir_v12_chunk_router_dev.sh`. No Public submission exists
 for this candidate yet, and V10 remains the confirmed Public baseline.
 
+## Rejected V13 wide-candidate check
+
+Reranking 50 FTS candidates instead of 20 looked slightly better on Dev
+queries 900–999 (Recall 0.8583 at the pre-fixed router setting, versus V12
+0.8533), but it failed the independent 800–899 block: V13 reached 0.8300,
+the same as V12 and below V10 at 0.8650. It is therefore rejected rather than
+scaled to full Dev. The next improvement must make the chunk reranker itself
+more discriminative, not simply provide it more candidates.
+
+## Rejected V14 chunk fine-tuning check
+
+`finetune_fts_chunk_crossencoder.py` was verified end-to-end with 800 labelled
+Train questions: the positive example is the best lexical chunk of a gold
+document and two FTS-returned non-gold chunks are hard negatives. On a held-out
+100-query Dev block, the fine-tuned model alone scored Recall 0.3508, versus
+0.8217 for V10; confidence routing could only recover the V10 baseline by not
+using it. The weakly selected positive chunk is not sufficient supervision for
+this model, so this branch is rejected and is not scaled.
+
 ## Data representation audit (2026-08-18)
 
 The official corpus contains 8,532 documents, but its raw representation is

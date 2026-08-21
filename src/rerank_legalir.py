@@ -67,6 +67,8 @@ def main() -> None:
     parser.add_argument("--top-k", type=int, default=5)
     parser.add_argument("--evidence-chunks", type=int, default=2)
     parser.add_argument("--batch-size", type=int, default=32)
+    parser.add_argument("--scores-output", type=Path,
+                        help="Optional confidence scores for safe routing experiments")
     parser.add_argument(
         "--max-queries",
         type=int,
@@ -117,12 +119,21 @@ def main() -> None:
         by_query[query_id].append((float(score), rank, document_id))
 
     result = {}
+    score_rows = {}
     for query_id, ranked in by_query.items():
         ranked.sort(key=lambda item: (-item[0], item[1], item[2]))
         result[query_id] = {"answer": [document_id for _, _, document_id in ranked[: args.top_k]]}
+        score_rows[query_id] = [
+            {"id": document_id, "score": score, "candidate_rank": rank + 1}
+            for score, rank, document_id in ranked
+        ]
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding="utf-8")
     print(f"wrote {len(result)} reranked predictions to {args.output}")
+    if args.scores_output:
+        args.scores_output.parent.mkdir(parents=True, exist_ok=True)
+        args.scores_output.write_text(json.dumps(score_rows, ensure_ascii=False, indent=2), encoding="utf-8")
+        print(f"wrote reranker scores to {args.scores_output}")
 
 
 if __name__ == "__main__":

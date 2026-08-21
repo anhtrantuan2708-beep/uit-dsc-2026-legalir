@@ -7,11 +7,17 @@ __pycache__/
 data/
 submissions/
 tmp/
+output/
 *.npy
 *.npz
 *.pt
 *.bin
 *.safetensors
+
+# Generated evaluation audits may contain data-derived IDs or text examples.
+reports/experiments/legalir_graph_oracle.json
+reports/experiments/legalir_graph_stats.json
+reports/experiments/legalir_hierarchy_*_audit.json
 
 # Secrets and local-machine files.
 .env
